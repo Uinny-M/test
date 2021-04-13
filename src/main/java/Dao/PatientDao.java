@@ -1,4 +1,7 @@
 package Dao;
 
-public class PatientDao {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PatientDao{
 }
