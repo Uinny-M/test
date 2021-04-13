@@ -21,7 +21,7 @@ public class Staff {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     //name of the medical employee
     @Column(name = "staff_name", nullable = false)

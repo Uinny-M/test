@@ -26,7 +26,7 @@ public class Event {
 
     //patient's id
     @Column(name = "patient_id", nullable = false)
-    private Long patientId;
+    private Integer patientId;
 
     //date and time of the event
     @Column(name = "date", nullable = false)
@@ -34,7 +34,7 @@ public class Event {
 
     //type of the manipulation
     @Column(name = "manipulation_id", nullable = false)
-    private Long manipulation_id;
+    private Integer manipulation_id;
 
     //status of event (planned/done/canceled)
     @Column(name = "status", columnDefinition = "planned")

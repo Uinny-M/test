@@ -26,11 +26,11 @@ public class Appointment {
 
     //patient's id
     @Column(name = "patient_id", nullable = false)
-    private Long patientId;
+    private Integer patientId;
 
     //type of the manipulation
     @Column(name = "manipulation_id", nullable = false)
-    private Long manipulation_id;
+    private Integer manipulation_id;
 
     //periodicity of manipulation
     @Column(name = "periodicity", nullable = false)

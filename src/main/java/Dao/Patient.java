@@ -22,26 +22,25 @@ public class Patient {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     //patient's name
     @Column(name = "patient_name", nullable = false)
     private String patientName;
 
     //patient's insurance policy number
-    @Column(name = "insurance")
+    @Column(name = "insurance", nullable = false)
     private Long insurance;
 
     //patient's diagnosis
-    @Column(name = "diagnosis")
+    @Column(name = "diagnosis", columnDefinition = "true")
     private String diagnosis;
 
     //doctor in charge of the case
     @Column(name = "doctor_id", nullable = false)
-    private Long doctorId;
+    private Integer doctorId;
 
     //status of the case (patient's therapy continues?)
     @Column(name = "openCase", columnDefinition = "true")
-    private Boolean openCase;
-
+    private boolean openCase;
 }
