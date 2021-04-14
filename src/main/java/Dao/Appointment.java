@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import java.time.LocalDate;
 
 /**
@@ -30,7 +31,7 @@ public class Appointment {
 
     //type of the manipulation
     @Column(name = "manipulation_id", nullable = false)
-    private Integer manipulation_id;
+    private byte manipulation_id;
 
     //periodicity of manipulation
     @Column(name = "periodicity", nullable = false)

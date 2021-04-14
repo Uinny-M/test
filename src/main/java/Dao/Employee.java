@@ -16,18 +16,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "staff")
-public class Staff {
+@Table(name = "employee")
+public class Employee {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     //name of the medical employee
-    @Column(name = "staff_name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String patientName;
 
-    //type of medical employee
-    @Column(name = "type_employee", nullable = false)
-    private String typeEmployee; //todo rewrite to enum
+    //type of medical employee (doctor/nurse)
+    @Column(name = "position", nullable = false)
+    private String position;
 }

@@ -34,9 +34,9 @@ public class Event {
 
     //type of the manipulation
     @Column(name = "manipulation_id", nullable = false)
-    private Integer manipulation_id;
+    private byte manipulation_id;
 
-    //status of event (planned/done/canceled)
+    //status of event (planned/completed/canceled/failed)
     @Column(name = "status", columnDefinition = "planned")
     private String status;
 

@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- * Entity manipulation
+ * Entity patient
  */
 
 @Getter
@@ -16,18 +16,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "manipulation")
-public class Manipulation {
+@Table(name = "role")
+public class Role {
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private byte id;
+    private Integer id;
 
-    //name of manipulation
-    @Column(name = "title", nullable = false)
+    //title of employee's role
+    @Column(name = "title", nullable = false, length = 20)
     private String title;
 
-    //type of manipulation
-    @Column(name = "type", nullable = false)
-    private String type;
+    //code of employee's role
+    @Column(name = "code", nullable = false)
+    private String code;
 }

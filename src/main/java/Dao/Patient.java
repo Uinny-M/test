@@ -25,7 +25,7 @@ public class Patient {
     private Integer id;
 
     //patient's name
-    @Column(name = "patient_name", nullable = false)
+    @Column(name = "name", nullable = false, length = 50)
     private String patientName;
 
     //patient's insurance policy number
