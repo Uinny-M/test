@@ -1,80 +1,89 @@
-create table if not exists employee
+create table employee
 (
-    id int auto_increment
-    primary key,
-    name varchar(255) not null,
+    id       int auto_increment
+        primary key,
+    name     varchar(255) not null,
     position varchar(255) not null
-    );
+);
 
-create table if not exists manipulation
+create table manipulation
 (
-    id tinyint auto_increment
-    primary key,
-    title varchar(225) not null,
-    type enum('PROCEDURE', 'MEDICAMENT') not null,
-    constraint manipulation_title_uindex
-    unique (title)
-    );
+    id    tinyint auto_increment
+        primary key,
+    title varchar(225)                     not null,
+    type  enum ('PROCEDURE', 'MEDICAMENT') not null
+);
 
-create table if not exists patient
+create table patient
 (
-    id int auto_increment
-    primary key,
-    name varchar(50) not null,
-    insurance bigint not null,
-    diagnosis varchar(255) default 'is not defined' null,
-    doctor_id int not null,
-    openCase int default 1 not null,
-    constraint doctor_fk
-    foreign key (doctor_id) references employee (id)
-    );
+    id        int auto_increment
+        primary key,
+    name      varchar(50) not null,
+    insurance bigint      not null
+);
 
-create table if not exists appointment
+create table appointment
 (
-    id bigint auto_increment
-    primary key,
-    patient_id int not null,
-    manipulation_id tinyint not null,
-    periodicity varchar(255) not null,
-    start_date date not null,
-    end_date date not null,
-    dosage varchar(255) null,
+    id              bigint auto_increment
+        primary key,
+    patient_id      int                                                                                                                                                                   not null,
+    manipulation_id tinyint                                                                                                                                                               not null,
+    duration        tinyint                                                                                                                                                               not null,
+    start_date      date                                                                                                                                                                  not null,
+    dosage          varchar(255)                                                                                                                                                          null,
+    weekday         set ('MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY') default (_utf8mb4'MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY') null,
+    daily_chart     tinyint                                                                            default 1                                                                          not null,
+    drug            varchar(40)                                                                                                                                                           null,
     constraint appointment_manipulation_id_fk
-    foreign key (manipulation_id) references manipulation (id),
+        foreign key (manipulation_id) references manipulation (id),
     constraint appointment_patient_fk
-    foreign key (patient_id) references patient (id)
-    );
+        foreign key (patient_id) references patient (id)
+);
 
-create table if not exists event
+create table `case`
 (
-    id bigint auto_increment
-    primary key,
-    patient_id int not null,
-    date datetime not null,
-    manipulation_id tinyint not null,
-    status enum('PLANNED', 'COMPLETED', 'CANCELED', 'FAILED') default 'PLANNED' not null,
-    comment text null,
+    id         bigint auto_increment
+        primary key,
+    patient_id int                                   not null,
+    doctor_id  int                                   not null,
+    diagnosis  varchar(255) default 'is not defined' null,
+    open       int          default 1                not null,
+    constraint case_employee_id_fk
+        foreign key (doctor_id) references employee (id),
+    constraint case_patient_id_fk
+        foreign key (patient_id) references patient (id)
+);
+
+create table event
+(
+    id              bigint auto_increment
+        primary key,
+    patient_id      int                                                                   not null,
+    date            datetime                                                              not null,
+    manipulation_id tinyint                                                               not null,
+    status          enum ('PLANNED', 'COMPLETED', 'CANCELED', 'FAILED') default 'PLANNED' not null,
+    comment         text                                                                  null,
     constraint manipulation_fk
-    foreign key (manipulation_id) references manipulation (id),
+        foreign key (manipulation_id) references manipulation (id),
     constraint patient_fk
-    foreign key (patient_id) references patient (id)
-    );
+        foreign key (patient_id) references patient (id)
+);
 
-create table if not exists role
+create table role
 (
-    id int auto_increment
-    primary key,
-    title varchar(20) not null,
-    code enum('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_NURSE') not null
-    );
+    id    int auto_increment
+        primary key,
+    title varchar(20)                                      not null,
+    code  enum ('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_NURSE') not null
+);
 
-create table if not exists employee_role
+create table employee_role
 (
     employee_id int not null
-    primary key,
-    role_id int not null,
+        primary key,
+    role_id     int not null,
     constraint employee_fk
-    foreign key (employee_id) references employee (id),
+        foreign key (employee_id) references employee (id),
     constraint role_fk
-    foreign key (role_id) references role (id)
-    );
+        foreign key (role_id) references role (id)
+);

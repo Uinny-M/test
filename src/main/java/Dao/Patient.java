@@ -31,16 +31,4 @@ public class Patient {
     //patient's insurance policy number
     @Column(name = "insurance", nullable = false)
     private Long insurance;
-
-    //patient's diagnosis
-    @Column(name = "diagnosis", columnDefinition = "true")
-    private String diagnosis;
-
-    //doctor in charge of the case
-    @Column(name = "doctor_id", nullable = false)
-    private Integer doctorId;
-
-    //status of the case (patient's therapy continues?)
-    @Column(name = "openCase", columnDefinition = "true")
-    private boolean openCase;
 }

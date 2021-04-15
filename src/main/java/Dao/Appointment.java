@@ -33,17 +33,25 @@ public class Appointment {
     @Column(name = "manipulation_id", nullable = false)
     private byte manipulation_id;
 
-    //periodicity of manipulation
-    @Column(name = "periodicity", nullable = false)
-    private String periodicity; //todo think and rewrite this field
-
     //start day of appointment
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 
-    //end day of appointment
-    @Column(name = "end_date", nullable = false)
-    private LocalDate endDate;
+    //duration of manipulation (number of days)
+    @Column(name = "duration", nullable = false)
+    private byte duration;
+
+    //select weekdays for manipulation
+    @Column(name = "weekday")
+    private String weekday;
+
+    //how many times a day
+    @Column(name = "daily_chart", nullable = false)
+    private byte dailyChart;
+
+    //name of the drug
+    @Column(name = "drug", length = 40)
+    private String drug;
 
     //dosage of medication
     @Column(name = "dosage")
