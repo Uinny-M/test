@@ -30,4 +30,8 @@ public class Manipulation {
     //type of manipulation
     @Column(name = "type", nullable = false)
     private String type;
+
+    //is the manipulation deleted
+    @Column(name = "deleted", nullable = false, columnDefinition = "false")
+    private boolean isDeleted;
 }

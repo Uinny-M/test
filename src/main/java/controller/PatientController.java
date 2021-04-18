@@ -1,6 +1,7 @@
 package controller;
 
 import entities.Patient;
+import org.springframework.web.servlet.ModelAndView;
 import service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ public class PatientController {
     //Return Patient bi ID
     @RequestMapping(value = "/{patientId}", method = RequestMethod.GET)
     @ResponseBody
+   // public ModelAndView
     public Patient getPatient(@PathVariable("patientId") Integer patientId) {
         return patientService.getPatient(patientId);
     }

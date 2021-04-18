@@ -47,5 +47,5 @@ public class Patient {
 
     //patient's insurance policy number
     @Column(name = "insurance", nullable = false)
-    private Long insurance;
+    private String insurance;
 }

@@ -38,4 +38,20 @@ public class Employee {
     //type of medical employee (doctor/nurse)
     @Column(name = "position", nullable = false)
     private String position;
+
+    //login for auth
+    @Column(name = "login", nullable = false, length = 20)
+    private String login;
+
+    //password for auth
+    @Column(name = "password", nullable = false, length = 20, columnDefinition = "password")
+    private String password;
+
+    //is the employee deleted
+    @Column(name = "deleted", nullable = false, columnDefinition = "false")
+    private boolean isDeleted;
+
+    //employee's role
+    @Column(name = "role", nullable = false)
+    private String role;
 }

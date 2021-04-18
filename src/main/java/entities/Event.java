@@ -45,4 +45,8 @@ public class Event {
     //comment on the procedure
     @Column(name = "comment")
     private String comment;
+
+    //is the event deleted
+    @Column(name = "deleted", nullable = false, columnDefinition = "false")
+    private boolean isDeleted;
 }

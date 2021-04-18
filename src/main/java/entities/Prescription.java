@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import java.time.LocalDate;
 
 /**
@@ -29,6 +28,11 @@ public class Prescription {
     @ManyToOne
     @Column(name = "patient_id", nullable = false)
     private Patient patient;
+
+    //case's id
+    @ManyToOne
+    @Column(name = "case_id", nullable = false)
+    private Case patientCase;
 
     //type of the manipulation
     @ManyToOne
@@ -58,4 +62,8 @@ public class Prescription {
     //dosage of medication
     @Column(name = "dosage")
     private String dosage;
+
+    //is the perscription deleted
+    @Column(name = "deleted", nullable = false, columnDefinition = "false")
+    private boolean isDeleted;
 }
