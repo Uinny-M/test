@@ -25,7 +25,7 @@ public class Case {
 
     //patient's id
     @ManyToOne
-    @Column(name = "patient_id", nullable = false)
+    @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
     //patient's diagnosis
@@ -34,7 +34,7 @@ public class Case {
 
     //doctor in charge of the case
     @ManyToOne
-    @Column(name = "doctor_id", nullable = false)
+    @JoinColumn(name = "doctor_id", nullable = false)
     private Employee doctor;
 
     //status of the case (patient's therapy continues?)

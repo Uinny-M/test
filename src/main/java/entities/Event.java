@@ -26,7 +26,7 @@ public class Event {
 
     //patient's id
     @ManyToOne
-    @Column(name = "patient_id", nullable = false)
+    @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
     //date and time of the event
@@ -35,7 +35,7 @@ public class Event {
 
     //type of the manipulation
     @ManyToOne
-    @Column(name = "manipulation_id", nullable = false)
+    @JoinColumn(name = "manipulation_id", nullable = false)
     private Manipulation manipulation;
 
     //status of event (planned/completed/canceled/failed)

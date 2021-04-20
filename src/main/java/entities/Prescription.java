@@ -26,17 +26,17 @@ public class Prescription {
 
     //patient's id
     @ManyToOne
-    @Column(name = "patient_id", nullable = false)
+    @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
     //case's id
     @ManyToOne
-    @Column(name = "case_id", nullable = false)
+    @JoinColumn(name = "case_id", nullable = false)
     private Case patientCase;
 
     //type of the manipulation
     @ManyToOne
-    @Column(name = "manipulation_id", nullable = false)
+    @JoinColumn(name = "manipulation_id", nullable = false)
     private Manipulation manipulation;
 
     //start day of prescription
