@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * Manage patient
+ * Сделать:
+ * - CRUD Patient
+ * - getCasesByPatientId - List(case) - список дел пациента по patientId
+ * - getOpenCasesByPatientId - List(case) - список открытых дел пациента по patientId
+ * - getPrescriptionsByPatientId - List(Prescriptions) - список назначений пациента по patientId
+ * - getOpenPrescriptionsByPatientId - List(Prescriptions) - список назначений пациента по patientId
  */
 @Controller
 @RequestMapping(value = "/patient")
