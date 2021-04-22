@@ -1,4 +1,4 @@
-package config;
+package clinic.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +10,8 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan ({"config", "controller"})
+//@ComponentScan ({"config", "controller"})
+@ComponentScan({"clinic", "clinic.config", "clinic.controller", "clinic.dao", "clinic.service", "clinic.entities"})
 public class WebConfig {
     @Bean
     public InternalResourceViewResolver viewResolver(){

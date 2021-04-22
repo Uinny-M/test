@@ -1,4 +1,4 @@
-package entities;
+package clinic.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

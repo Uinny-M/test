@@ -1,8 +1,8 @@
-package controller;
+package clinic.controller;
 
-import entities.Patient;
+import clinic.entities.Patient;
 import org.springframework.web.servlet.ModelAndView;
-import service.PatientService;
+import clinic.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

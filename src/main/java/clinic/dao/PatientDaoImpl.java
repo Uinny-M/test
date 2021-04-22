@@ -1,6 +1,6 @@
-package dao;
+package clinic.dao;
 
-import entities.Patient;
+import clinic.entities.Patient;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

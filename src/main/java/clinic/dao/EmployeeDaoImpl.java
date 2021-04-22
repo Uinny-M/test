@@ -1,6 +1,6 @@
-package dao;
+package clinic.dao;
 
-import entities.Employee;
+import clinic.entities.Employee;
 import org.springframework.stereotype.Repository;
 
 @Repository

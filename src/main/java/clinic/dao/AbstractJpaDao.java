@@ -1,4 +1,4 @@
-package dao;
+package clinic.dao;
 
 
 import javax.persistence.EntityManager;

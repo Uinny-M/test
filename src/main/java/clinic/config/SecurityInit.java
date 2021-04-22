@@ -1,4 +1,4 @@
-package config;
+package clinic.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

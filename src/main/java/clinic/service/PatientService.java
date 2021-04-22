@@ -1,9 +1,8 @@
-package service;
+package clinic.service;
 
-import dao.PatientDaoImpl;
-import entities.Patient;
+import clinic.dao.PatientDaoImpl;
+import clinic.entities.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
