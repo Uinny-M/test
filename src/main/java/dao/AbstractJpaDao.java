@@ -16,7 +16,7 @@ public class AbstractJpaDao<T>  {
         this.clazz = clazzToSet;
     }
 
-    public T findOne(Long id) {
+    public T findOne(Number id) {
         return entityManager.find(clazz, id);
     }
 

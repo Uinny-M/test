@@ -63,7 +63,7 @@ public class Prescription {
     @Column(name = "dosage")
     private String dosage;
 
-    //is the perscription deleted
+    //is the prescription deleted
     @Column(name = "deleted", nullable = false, columnDefinition = "false")
     private boolean isDeleted;
 }
