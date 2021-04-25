@@ -19,7 +19,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Table(name = "patient")
-public class Patient {
+public class Patient implements Serializable {
 
     @Id
     @Column(name = "id")

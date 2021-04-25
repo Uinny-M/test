@@ -1,8 +1,8 @@
-package clinic.dao;
+package clinic.dao.api;
 
 import clinic.entities.Employee;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class EmployeeDaoImpl extends AbstractJpaDao<Employee>{
+public interface EmployeeDao extends AbstractDao<Employee>{
 }

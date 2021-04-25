@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: marga
@@ -15,5 +16,14 @@
 </h1>
 <br/>
 <a >Кому говорят</a>
+<tr>
+    <c:forEach var="patients" items="${patient}">
+        <td>${patients.id}</td>
+        <td>${patients.secondName}</td>
+        <td>${patients.firstName}</td>
+        <td>${patients.middleName}</td>
+        <td>${patients.gender}</td>
+    </c:forEach>
+</tr>
 </body>
 </html>

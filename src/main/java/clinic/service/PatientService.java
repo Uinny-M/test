@@ -1,39 +1,23 @@
 package clinic.service;
 
-import clinic.dao.PatientDaoImpl;
 import clinic.entities.Patient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class PatientService {
-    @Autowired
-    private PatientDaoImpl dao;
+public interface PatientService {
 
     //Create new Patient
-    public void createOrUpdatePatient(Patient patient) {
-        dao.save(patient);
-    }
+    public void createOrUpdatePatient(Patient patient);
 
     //soft-delete Patient (isDelete = true)
-    public void removePatient(Patient patient) {
-        dao.softDelete(patient);
-    }
+    public void removePatient(Patient patient);
 
     //get patient by id
-    public Patient getPatientById(Integer patientId){
-        return dao.findOne(patientId);
-    }
+    public Patient getPatientById(Integer patientId);
 
     //get patient by part of name
-    public List<Patient> getPatientsByName(String patientName){
-        return dao.findAllByName(patientName);
-    }
+//    public List<Patient> getPatientsByName(String patientName);
 
     //get patient by part of name
-    public List<Patient> getAllPatients() {
-        return dao.findAll();
-    }
+    public List<Patient> getAllPatients();
 }

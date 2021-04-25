@@ -1,8 +1,9 @@
 package clinic.controller;
 
 import clinic.entities.Patient;
-import org.springframework.web.servlet.ModelAndView;
 import clinic.service.PatientService;
+import org.springframework.web.servlet.ModelAndView;
+import clinic.service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +18,16 @@ import org.springframework.web.bind.annotation.*;
  * - getPrescriptionsByPatientId - List(Prescriptions) - список назначений пациента по patientId
  * - getOpenPrescriptionsByPatientId - List(Prescriptions) - список назначений пациента по patientId
  */
+
 @Controller
 @RequestMapping(value = "/patient")
 public class PatientController {
 
-    @Autowired
-    PatientService patientService;
+    final    PatientService patientService;
+@Autowired
+    public PatientController(PatientService patientService) {
+        this.patientService = patientService;
+    }
 
 
     //Return Patient by ID
@@ -30,7 +35,7 @@ public class PatientController {
     @ResponseBody
     public ModelAndView getPatientById(@PathVariable("patientId") Integer patientId){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("patientJSP", patientService.getPatientById(patientId));
+        modelAndView.addObject("patient", patientService.getPatientById(patientId));
         modelAndView.setViewName("patient");
         return modelAndView;
     }
@@ -41,8 +46,8 @@ public class PatientController {
     @ResponseBody
     public ModelAndView getAllPatients(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("patientsJSP", patientService.getAllPatients());
-        modelAndView.setViewName("patients");
+        modelAndView.addObject("patient", patientService.getAllPatients());
+        modelAndView.setViewName("patient");
         return modelAndView;
     }
 
@@ -53,7 +58,7 @@ public class PatientController {
     public ModelAndView removePatient(@RequestBody Patient patient) {
         ModelAndView modelAndView = new ModelAndView();
         patientService.removePatient(patient);
-        modelAndView.addObject("patientJSP", patientService.getAllPatients());
+        modelAndView.addObject("patient", patientService.getAllPatients());
         return modelAndView;
     }
 }
