@@ -1,5 +1,6 @@
 package clinic.config;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -13,17 +14,18 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 @Configuration
+@ComponentScan(basePackages = "clinic")
 public class RootWebAppInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext root =
                 new AnnotationConfigWebApplicationContext();
+        root.setConfigLocation("clinic.config");
 
-        root.scan();
         servletContext.addListener(new ContextLoaderListener(root));
 
         ServletRegistration.Dynamic appServlet =
-                servletContext.addServlet("mvc", new DispatcherServlet(new GenericWebApplicationContext()));
+                servletContext.addServlet("mvc", new DispatcherServlet(root));
         appServlet.setLoadOnStartup(1);
         appServlet.addMapping("/");
     }

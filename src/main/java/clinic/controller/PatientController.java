@@ -24,13 +24,6 @@ public class PatientController {
     @Autowired
     PatientService patientService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView test(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("patientJSP", "тут что-то важное");
-        modelAndView.setViewName("patient");
-        return modelAndView;
-    }
 
     //Return Patient by ID
     @RequestMapping(value = "/{patientId}", method = RequestMethod.GET)
@@ -42,15 +35,6 @@ public class PatientController {
         return modelAndView;
     }
 
-    //Return Patient's List by name
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    @ResponseBody
-    public ModelAndView getPatientByName(@RequestBody String name){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("patientJSP", patientService.getPatientsByName(name));
-        modelAndView.setViewName("patient");
-        return modelAndView;
-    }
 
     //Return all patients
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -62,15 +46,6 @@ public class PatientController {
         return modelAndView;
     }
 
-    //Return all patients
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    @ResponseBody
-    public ModelAndView createOrUpdatePatient(@RequestBody Patient patient) {
-        ModelAndView modelAndView = new ModelAndView();
-        patientService.createOrUpdatePatient(patient);
-        modelAndView.addObject("patientsJSP", patientService.getAllPatients());
-        return modelAndView;
-    }
 
     //Delete existing patient
     @RequestMapping(method = RequestMethod.DELETE)
