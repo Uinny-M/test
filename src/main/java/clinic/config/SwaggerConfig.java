@@ -43,7 +43,7 @@ public class SwaggerConfig {
                 "API until the front appears",
                 "1.0",
                 "",
-                new Contact("Uinny-M", "", ""),
+                new Contact("Uinny", "", ""),
                 "-",
                 "",
                 new ArrayList<>());
