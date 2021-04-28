@@ -17,17 +17,17 @@ public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao> imple
     private Dao dao;
 
     @Override
-    public DTO findById(Number id) {
+    public DTO getOneById(Number id) {
         return mapToDTO((T) dao.findById(id));
     }
 
     @Override
-    public List<DTO> findAll() {
+    public List<DTO> getAll() {
         return mapToDTO(dao.findAll());
     }
 
     @Override
-    public DTO save(DTO dto) {
+    public DTO create(DTO dto) {
         return mapToDTO((T) dao.save(mapToEntity(dto)));
     }
 
@@ -37,10 +37,10 @@ public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao> imple
     }
 
     public DTO createOrUpdate(DTO dto) {
-        if (findAll().contains(dto)) {
+        if (getAll().contains(dto)) {
             update(dto);
         }
-        else save(dto);
+        else create(dto);
         return dto;
     }
 

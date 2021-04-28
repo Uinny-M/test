@@ -17,6 +17,10 @@ public class EmployeeServiceImpl extends AbstractServiceImpl<Employee, EmployeeD
     @Getter
     private ModelMapper mapper;
 
+    public EmployeeServiceImpl(EmployeeDao dao) {
+        super(dao);//todo
+    }
+
     @Override
     public EmployeeDTO mapToDTO(Employee entity){
         return getMapper().map(entity, EmployeeDTO.class);

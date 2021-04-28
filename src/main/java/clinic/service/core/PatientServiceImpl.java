@@ -28,8 +28,12 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
     @Getter
     private ModelMapper mapper;
 
+    public PatientServiceImpl(PatientDao dao) {
+        super(dao); //todo
+    }
 
-//    @Override
+
+    //    @Override
 //    @Mappings({
 //            @Mapping(target="birthdate", source = "entity.birthdate", dateFormat = "yyyy-MM-dd")
 //    })

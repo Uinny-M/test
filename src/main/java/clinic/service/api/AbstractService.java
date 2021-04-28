@@ -4,11 +4,11 @@ package clinic.service.api;
 import java.util.List;
 
 public interface AbstractService <T, DTO>{
-    DTO findById(Number id);
+    DTO getOneById(Number id);
 
-    List<DTO> findAll();
+    List<DTO> getAll();
 
-    DTO save(DTO dto);
+    DTO create(DTO dto);
 
     DTO update(DTO dto);
 

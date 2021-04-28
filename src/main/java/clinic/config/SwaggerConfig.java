@@ -2,7 +2,9 @@ package clinic.config;
 
 import com.google.common.collect.Lists;
 import lombok.extern.log4j.Log4j2;
+
 import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.core.Authentication;
@@ -17,18 +19,22 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 /**
  * Класс конфигурации Swagger
  */
-@Log4j2
+
 @Configuration
 @EnableSwagger2
 @Import(springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
-
+//    private static final Logger log = LogManager.getLogger(SwaggerConfig.class.getName());
     public static final String AUTHORIZATION_HEADER = "Authorization";
     public static final String DEFAULT_INCLUDE_PATTERN = "/api/.*";
+
+
 
     @Bean
     public Docket api() {
@@ -56,7 +62,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
 
-        //log.debug("Swagger was started"); //todo подключить логгирование
+//        log.debug("Swagger was started"); //todo подключить логгирование
         return docket;
     }
 
