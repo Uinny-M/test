@@ -30,7 +30,7 @@ import java.util.logging.Logger;
 @EnableSwagger2
 @Import(springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
-//    private static final Logger log = LogManager.getLogger(SwaggerConfig.class.getName());
+//private static final Logger log = LogManager.getLogger(SwaggerConfig.class.getName());
     public static final String AUTHORIZATION_HEADER = "Authorization";
     public static final String DEFAULT_INCLUDE_PATTERN = "/api/.*";
 
