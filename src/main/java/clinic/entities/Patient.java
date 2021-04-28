@@ -1,5 +1,6 @@
 package clinic.entities;
 
+import clinic.entities.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,7 +45,8 @@ public class Patient implements Serializable {
 
     //patient's gender
     @Column(name = "gender")
-    private String gender;
+    @Enumerated(EnumType.ORDINAL)
+    private Gender gender;
 
     //patient's insurance policy number
     @Column(name = "insurance", nullable = false)

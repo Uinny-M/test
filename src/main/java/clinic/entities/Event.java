@@ -1,5 +1,6 @@
 package clinic.entities;
 
+import clinic.entities.enums.EventStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,7 +41,8 @@ public class Event {
 
     //status of event (planned/completed/canceled/failed)
     @Column(name = "status", columnDefinition = "planned")
-    private String status;
+    @Enumerated(EnumType.ORDINAL)
+    private EventStatus status;
 
     //comment on the procedure
     @Column(name = "comment")

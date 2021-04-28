@@ -1,5 +1,6 @@
 package clinic.entities;
 
+import clinic.entities.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -53,5 +54,6 @@ public class Employee {
 
     //employee's role
     @Column(name = "role", nullable = false)
-    private String role;
+    @Enumerated(EnumType.ORDINAL)
+    private Role role;
 }

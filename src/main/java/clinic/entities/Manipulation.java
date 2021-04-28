@@ -1,5 +1,6 @@
 package clinic.entities;
 
+import clinic.entities.enums.ManipulationType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,8 @@ public class Manipulation {
 
     //type of manipulation
     @Column(name = "type", nullable = false)
-    private String type;
+    @Enumerated(EnumType.ORDINAL)
+    private ManipulationType type;
 
     //is the manipulation deleted
     @Column(name = "deleted", nullable = false, columnDefinition = "false")
