@@ -1,6 +1,7 @@
 package clinic.dto;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -19,6 +20,7 @@ public class PatientDTO {
     private String middleName;
 
     //patient's birthdate
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate birthdate;
 
     //patient's gender

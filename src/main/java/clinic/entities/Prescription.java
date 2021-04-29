@@ -1,5 +1,7 @@
 package clinic.entities;
 
+import clinic.entities.enums.Times;
+import clinic.entities.enums.Weekday;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,7 +51,13 @@ public class Prescription {
 
     //select weekdays for manipulation
     @Column(name = "weekday")
+    @Enumerated(EnumType.ORDINAL)
     private String weekday;
+
+    //select time for manipulation
+    @Column(name = "time")
+    @Enumerated(EnumType.ORDINAL)
+    private Times times;
 
     //how many times a day
     @Column(name = "daily_chart", nullable = false)

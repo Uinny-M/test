@@ -7,13 +7,10 @@ import clinic.entities.Patient;
 
 import clinic.service.api.PatientService;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.Mapping;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +20,7 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
 //        super(dao);
 //    }
     @Autowired
-    private PatientDao dao;
+    private PatientDao patientDao;
 
     @Getter
     private ModelMapper mapper;
@@ -51,7 +48,7 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
     //get patient by part of name
     @Override
     public List<PatientDTO> getAllPatientsByName(String secondName) {
-        return mapToDTO(dao.findAll().stream()
+        return mapToDTO(patientDao.findAll().stream()
                 .filter(s->s.getSecondName().contains(secondName))
                 .collect(Collectors.toList()));
     }

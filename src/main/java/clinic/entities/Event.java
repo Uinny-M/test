@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * Entity event
@@ -32,7 +34,11 @@ public class Event {
 
     //date and time of the event
     @Column(name = "date", nullable = false)
-    private LocalDateTime dateTime;
+    private LocalDate date;
+
+    //time of the event
+    @Column(name = "time", nullable = false)
+    private LocalTime time;
 
     //type of the manipulation
     @ManyToOne

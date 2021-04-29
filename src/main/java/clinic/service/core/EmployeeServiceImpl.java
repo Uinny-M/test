@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeServiceImpl extends AbstractServiceImpl<Employee, EmployeeDTO, EmployeeDao> implements EmployeeService {
     @Autowired
-    private EmployeeDao dao;
+    private EmployeeDao employeeDao;
 
     @Getter
     private ModelMapper mapper;
