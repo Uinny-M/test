@@ -21,12 +21,12 @@ import org.springframework.web.servlet.ModelAndView;
  * - getPrescriptionsByPatientId - List(Prescriptions) - список назначений пациента по patientId
  * - getOpenPrescriptionsByPatientId - List(Prescriptions) - список назначений пациента по patientId
  */
-@Log4j
+
 @Controller
 @RequestMapping(value = "/patient")
 public class PatientController {
 
-    final PatientService patientService;
+    private final PatientService patientService;
 
     @Autowired
     public PatientController(PatientService patientService) {
@@ -40,10 +40,12 @@ public class PatientController {
     @ResponseBody
     public ModelAndView getPatientById(@PathVariable("patientId") Integer patientId) {
         ModelAndView modelAndView = new ModelAndView();
-    //    modelAndView.addObject("patient", patientService.getOneById(patientId));
-        modelAndView.addObject("patient", dao.findById(patientId));
+        ;
+ modelAndView.addObject("patient", patientService.getOneById(patientId));
+
+//        Patient patient = new Patient();
+//        modelAndView.addObject("patient", patientId);
         modelAndView.setViewName("patient");
-        System.out.println(dao.findById(patientId));
         return modelAndView;
     }
 
@@ -53,8 +55,7 @@ public class PatientController {
     @ResponseBody
     public ModelAndView getAllPatients() {
         ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("patients", dao.findAll());
-     //   modelAndView.addObject("patient", patientService.getAll());
+modelAndView.addObject("patients", dao.findAll());
         modelAndView.setViewName("patients");
         return modelAndView;
     }

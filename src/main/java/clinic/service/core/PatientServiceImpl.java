@@ -10,6 +10,7 @@ import lombok.Getter;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,14 +20,13 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
 //    public PatientServiceImpl(PatientDao dao) {
 //        super(dao);
 //    }
-    @Autowired
-    private PatientDao patientDao;
-
     @Getter
-    private ModelMapper mapper;
+    ModelMapper mapper;
+    private final PatientDao patientDao;
 
-    public PatientServiceImpl(PatientDao dao) {
-        super(dao); //todo
+    public PatientServiceImpl(PatientDao patientDao) {
+        super(patientDao);
+        this.patientDao = patientDao;
     }
 
 
@@ -34,7 +34,7 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
 //    @Mappings({
 //            @Mapping(target="birthdate", source = "entity.birthdate", dateFormat = "yyyy-MM-dd")
 //    })
-//    public PatientDTO mapToDTO(Patient entity);
+ //   public PatientDTO mapToDTO(Patient entity);
     @Override
     public PatientDTO mapToDTO(Patient entity){
         return getMapper().map(entity, PatientDTO.class);

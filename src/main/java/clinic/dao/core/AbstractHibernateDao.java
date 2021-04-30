@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 public abstract class AbstractHibernateDao<T>  {
-    private Class<T> clazz;
+    private final Class<T> clazz;
 
     @PersistenceContext
     protected EntityManager em;

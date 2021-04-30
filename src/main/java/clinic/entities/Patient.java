@@ -45,7 +45,7 @@ public class Patient implements Serializable {
 
     //patient's gender
     @Column(name = "gender")
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     //patient's insurance policy number

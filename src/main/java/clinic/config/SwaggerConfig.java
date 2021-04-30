@@ -62,7 +62,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
 
-//        log.debug("Swagger was started"); //todo подключить логгирование
+     //   log.debug("Swagger was started"); //todo подключить логгирование
         return docket;
     }
 
