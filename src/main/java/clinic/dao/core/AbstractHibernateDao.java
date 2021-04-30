@@ -6,44 +6,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 public abstract class AbstractHibernateDao<T>  {
     private Class<T> clazz;
 
-    @Autowired
-    SessionFactory sessionFactory;
+    @PersistenceContext
+    protected EntityManager em;
 
-    public void setClazz(Class<T> clazzToSet) {
+    public AbstractHibernateDao(Class<T> clazzToSet) {
         this.clazz = clazzToSet;
     }
 
     @Transactional
     public T findById(Number id) {
-        return sessionFactory.getCurrentSession().find(clazz, id);
+        return em.find(clazz, id);
     }
 
     @Transactional
     public List<T> findAll() {
-        return sessionFactory.getCurrentSession().createQuery("from " + clazz.getName())
+        return em.createQuery("from " + clazz.getName(), clazz)
                 .getResultList();
     }
 
     @Transactional
     public T save(T entity) {
-        sessionFactory.getCurrentSession().save(entity);
+        em.persist(entity);
+        em.flush();
         return entity;
     }
 
     @Transactional
     public T update(T entity) {
-        return (T) sessionFactory.getCurrentSession().merge(entity);
+        return em.merge(entity);
     }
 
     @Transactional
     public void delete(T entity) {
         //todo softDelete or remove method
-        sessionFactory.getCurrentSession().remove(entity);
+        em.remove(em.contains(entity) ? entity : em.merge(entity));
     }
 
     @Transactional

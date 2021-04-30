@@ -49,15 +49,19 @@ public class Prescription {
     @Column(name = "duration", nullable = false)
     private byte duration;
 
-    //select weekdays for manipulation
-    @Column(name = "weekday")
-    @Enumerated(EnumType.ORDINAL)
-    private String weekday;
+//    //select weekdays for manipulation
+//    @Column(name = "weekday")
+//    @Enumerated(EnumType.ORDINAL)
+//    private Weekday weekday;
+//
+//    //select time for manipulation
+//    @Column(name = "time")
+//    @Enumerated(EnumType.ORDINAL)
+//    private Times times;
 
-    //select time for manipulation
-    @Column(name = "time")
-    @Enumerated(EnumType.ORDINAL)
-    private Times times;
+    // manipulation's schedule
+    @Column(name = "schedule", length = 255)
+    private String schedule;
 
     //how many times a day
     @Column(name = "daily_chart", nullable = false)

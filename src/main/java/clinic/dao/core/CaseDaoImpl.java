@@ -9,6 +9,9 @@ import java.util.List;
 
 @Repository
 public class CaseDaoImpl extends AbstractHibernateDao<Case> implements CaseDao {
-
-    public List<Case> findCasesByPatientId(Integer patientId); //todo
+public CaseDaoImpl(){super(Case.class);}
+    public List<Case> findCasesByPatientId(Integer patientId)
+    {
+        return null;
+    } //todo
 }

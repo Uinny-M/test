@@ -11,10 +11,7 @@ import java.util.List;
 @Repository
 public class PatientDaoImpl extends AbstractHibernateDao<Patient> implements PatientDao {
 
-public PatientDaoImpl(){
-    setClazz(Patient.class);
-}
-
+public PatientDaoImpl(){super(Patient.class);}
     @Transactional
     public List<Patient> findAllByName(String name) {
         return null;

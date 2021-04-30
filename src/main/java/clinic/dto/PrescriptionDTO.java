@@ -31,12 +31,15 @@ public class PrescriptionDTO {
     //duration of manipulation (number of days)
     private byte duration;
 
-    //select weekdays for manipulation
-    private Set<Weekday> weekdays;
+//    //select weekdays for manipulation
+//    private Set<Weekday> weekdays;
+//
+//    //select time for manipulation
+//    @DateTimeFormat(pattern="HH:mm")
+//    private Set<Times> times;
 
-    //select time for manipulation
-    @DateTimeFormat(pattern="HH:mm")
-    private Set<Times> times;
+    // manipulation's schedule
+    private String schedule;
 
     //how many times a day
     private byte dailyChart;

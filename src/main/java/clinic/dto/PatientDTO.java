@@ -1,5 +1,6 @@
 package clinic.dto;
 
+import clinic.entities.enums.Gender;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,7 +25,7 @@ public class PatientDTO {
     private LocalDate birthdate;
 
     //patient's gender
-    private String gender;
+    private Gender gender;
 
     //patient's insurance policy number
     private String insurance;
