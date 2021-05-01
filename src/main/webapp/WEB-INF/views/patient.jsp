@@ -16,14 +16,19 @@
 </h1>
 <br/>
 <a >Кому говорят</a>
-<%--<tr>--%>
+<tr>
+    ${patient.id}
+        ${patient.secondName}
+        ${patient.firstName}
+        ${patient.gender}
+        ${patient.birthdate}
 <%--    <c:forEach var="patient" items="${patient}">--%>
 <%--        <td>${patients.id}</td>--%>
 <%--        <td>${patients.secondName}</td>--%>
 <%--        <td>${patients.firstName}</td>--%>
 <%--        <td>${patients.middleName}</td>--%>
 <%--    </c:forEach>--%>
-<%--</tr>--%>
+</tr>
 
 </body>
 </html>

@@ -1,36 +1,42 @@
 package clinic.service.core;
 
 import clinic.dao.api.AbstractDao;
-import clinic.dao.api.PatientDao;
-import clinic.dto.PatientDTO;
-import clinic.entities.Patient;
+import clinic.mappers.AbstractMapper;
 import clinic.service.api.AbstractService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.modelmapper.ModelMapper;
+import org.mapstruct.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
-public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao> implements AbstractService<T,DTO> {
+public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao, Mapper extends AbstractMapper<T,DTO>> implements AbstractService<T,DTO> {
 
     @Getter
     @Setter
     private Dao dao;
 
+    @Setter
+    @Getter
+    private final Mapper mapper;
+
+
     @Override
     @Transactional(readOnly = true)
-    public DTO getOneById(Number id) {
-        return mapToDTO((T) dao.findById(id));
+    public T getOneById(Number id) {
+        return (T) dao.findById(id);
+        //return mapToDTO((T) dao.findById(id));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<DTO> getAll() {
-        return mapToDTO(dao.findAll());
+    public List<T> getAll() {
+        return dao.findAll();
+        //return mapToDTO(dao.findAll());
     }
 
     @Override
@@ -66,7 +72,10 @@ public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao> imple
     }
 
     @Override
-    public abstract DTO mapToDTO(T entity);
+    public DTO mapToDTO(T entity){
+
+    return (DTO) mapper.mapEntityToDto(entity);
+    }
 
     @Override
     public List<DTO> mapToDTO(List<T> entities) {
@@ -74,7 +83,9 @@ public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao> imple
     }
 
     @Override
-    public abstract T mapToEntity(DTO dto);
+    public T mapToEntity(DTO dto){
+       return (T) mapper.mapDtoToEntity(dto);
+    }
 
     @Override
     public List<T> mapToEntity(List<DTO> dtos) {

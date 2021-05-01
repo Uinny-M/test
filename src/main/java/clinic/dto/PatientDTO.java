@@ -25,7 +25,7 @@ public class PatientDTO {
     private LocalDate birthdate;
 
     //patient's gender
-    private Gender gender;
+    private String gender;
 
     //patient's insurance policy number
     private String insurance;

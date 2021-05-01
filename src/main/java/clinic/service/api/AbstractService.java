@@ -4,9 +4,9 @@ package clinic.service.api;
 import java.util.List;
 
 public interface AbstractService <T, DTO>{
-    DTO getOneById(Number id);
+    T getOneById(Number id);
 
-    List<DTO> getAll();
+    List<T> getAll();
 
     DTO create(DTO dto);
 
