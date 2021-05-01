@@ -8,21 +8,23 @@ import clinic.entities.Patient;
 import clinic.mappers.PatientMapper;
 import clinic.service.api.PatientService;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.mapstruct.Mapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO, PatientDao, PatientMapper> implements PatientService {
-
     @Autowired
-    public PatientServiceImpl(PatientDao patientDao, PatientMapper patientMapper) {
-        super(patientDao, patientMapper);
+    public PatientServiceImpl(PatientDao dao, PatientMapper mapper) {
+        super(dao, mapper);
     }
 
 
