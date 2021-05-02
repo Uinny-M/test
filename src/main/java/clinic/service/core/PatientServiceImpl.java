@@ -21,10 +21,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO, PatientDao, PatientMapper> implements PatientService {
+//@RequiredArgsConstructor(onConstructor = {@Inject})
+public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO, PatientDao, PatientMapper>
+        implements PatientService {
+
     @Autowired
     public PatientServiceImpl(PatientDao dao, PatientMapper mapper) {
         super(dao, mapper);
+    }
+
+    @Override
+    public String getName(Integer id) {
+        return "  "+ dao.findById(id).getId();
     }
 
 

@@ -42,8 +42,9 @@ public class PatientController {
     @ResponseBody
     public ModelAndView getPatientById(@PathVariable("patientId") Integer patientId) {
         ModelAndView modelAndView = new ModelAndView();
-        ;
-        modelAndView.addObject("patient", patientService.getOneById(patientId));
+
+        String name ="yiyiuiu";// patientService.getOneById(patientId).getFirstName();
+        modelAndView.addObject("patient", name);
 
 //        Patient patient = new Patient();
 //        modelAndView.addObject("patient", patientId);

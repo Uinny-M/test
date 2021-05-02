@@ -17,11 +17,9 @@
 <br/>
 <a >Кому говорят</a>
 <tr>
-    ${patient.id}
-        ${patient.secondName}
-        ${patient.firstName}
-        ${patient.gender}
-        ${patient.birthdate}
+    ${patient}
+
+
 <%--    <c:forEach var="patient" items="${patient}">--%>
 <%--        <td>${patients.id}</td>--%>
 <%--        <td>${patients.secondName}</td>--%>

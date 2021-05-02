@@ -4,26 +4,19 @@ import clinic.dao.api.AbstractDao;
 import clinic.mappers.AbstractMapper;
 import clinic.service.api.AbstractService;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.mapstruct.Mapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
-public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao, Mapper extends AbstractMapper> implements AbstractService<T,DTO> {
+public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao, Mapper extends AbstractMapper>
+        implements AbstractService<T,DTO> {
 
-    @Getter
-    @Setter
-    private Dao dao;
 
-    @Getter
-    private final Mapper mapper;
+    protected final Dao dao;
+    protected final Mapper mapper;
 
     public AbstractServiceImpl(Dao dao, Mapper mapper) {
         this.dao = dao;

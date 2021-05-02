@@ -12,13 +12,13 @@
     <title>Title</title>
 </head>
 <body>
-<%--${patients}--%>
-<c:forEach var="patients" items="${patients}">
-    <td>${patients.id}</td>
-    <td>${patients.secondName}</td>
-    <td>${patients.firstName}</td>
-    <td>${patients.middleName}</td>
-</c:forEach>
+${patients}
+<%--<c:forEach var="patients" items="${patients}">--%>
+<%--    <td>${patients.id}</td>--%>
+<%--    <td>${patients.secondName}</td>--%>
+<%--    <td>${patients.firstName}</td>--%>
+<%--    <td>${patients.middleName}</td>--%>
+<%--</c:forEach>--%>
 
 </body>
 </html>
