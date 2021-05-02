@@ -26,15 +26,14 @@ public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao, Mappe
 
     @Override
     @Transactional(readOnly = true)
-    public T getOneById(Number id) {
-        return (T) dao.findById(id);
-        //return mapToDTO((T) dao.findById(id));
+    public DTO getOneById(Number id) {
+        return mapToDTO((T) dao.findById(id));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<T> getAll() {
-        return dao.findAll();
+    public List<DTO> getAll() {
+        return mapToDTO(dao.findAll());
         //return mapToDTO(dao.findAll());
     }
 

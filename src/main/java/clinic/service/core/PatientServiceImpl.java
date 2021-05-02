@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-//@RequiredArgsConstructor(onConstructor = {@Inject})
 public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO, PatientDao, PatientMapper>
         implements PatientService {
 
@@ -32,7 +31,7 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
 
     @Override
     public String getName(Integer id) {
-        return "  "+ dao.findById(id).getId();
+        return "  "+ dao.findById(id);
     }
 
 

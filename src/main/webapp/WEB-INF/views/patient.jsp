@@ -17,7 +17,7 @@
 <br/>
 <a >Кому говорят</a>
 <tr>
-    ${patient}
+    ${patient.birthdate}
 
 
 <%--    <c:forEach var="patient" items="${patient}">--%>

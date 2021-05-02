@@ -43,8 +43,8 @@ public class PatientController {
     public ModelAndView getPatientById(@PathVariable("patientId") Integer patientId) {
         ModelAndView modelAndView = new ModelAndView();
 
-        String name ="yiyiuiu";// patientService.getOneById(patientId).getFirstName();
-        modelAndView.addObject("patient", name);
+
+        modelAndView.addObject("patient", patientService.getOneById(patientId));
 
 //        Patient patient = new Patient();
 //        modelAndView.addObject("patient", patientId);
