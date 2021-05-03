@@ -41,9 +41,9 @@
     <div class="vertical-menu">
         <a href="http://localhost:8080/T_school_war_exploded/">Главная</a>
         <a href="http://localhost:8080/T_school_war_exploded/patient/" class="active">Пациенты</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
+        <a href="#">Процедуры</a>
+        <a href="#">Сотрудники</a>
+        <a href="#">Приемная</a>
     </div>
     <div class="content">
         <form class="form">
@@ -211,13 +211,12 @@
         transition: all 0.5s ease 0s;
         margin-top: -30px;
     }
-
     /*Menu*/
+
     .vertical-menu {
         display: block;
         width: 200px;
         height: auto;
-        margin: 0px;
         list-style: none;
         position: absolute;
         left: 0;
@@ -225,6 +224,7 @@
         top: 165px;
         border-right: 3px solid #28a347;
         float: left;
+        overflow-y: scroll;
     }
 
     .vertical-menu a {
