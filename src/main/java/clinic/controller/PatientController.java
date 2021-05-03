@@ -1,16 +1,18 @@
 package clinic.controller;
 
 import clinic.dao.api.PatientDao;
-import clinic.dao.core.PatientDaoImpl;
+import clinic.dto.PatientDTO;
 import clinic.service.api.PatientService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.validation.Valid;
 
 
 /**
@@ -42,16 +44,10 @@ public class PatientController {
     @ResponseBody
     public ModelAndView getPatientById(@PathVariable("patientId") Integer patientId) {
         ModelAndView modelAndView = new ModelAndView();
-
-
         modelAndView.addObject("patient", patientService.getOneById(patientId));
-
-//        Patient patient = new Patient();
-//        modelAndView.addObject("patient", patientId);
         modelAndView.setViewName("patient");
         return modelAndView;
     }
-
 
     //Return all patients
     @GetMapping(value = "/")
@@ -62,4 +58,14 @@ public class PatientController {
         modelAndView.setViewName("patients");
         return modelAndView;
     }
+
+//    @PostMapping(value = "/")
+////    public ModelAndView addPatient( @ModelAttribute PatientDTO patientDTO) {
+////    patientService.create(patientDTO);
+////    return new ModelAndView(new RedirectView("/patient/"));
+//
+//        public String addPatient(@ModelAttribute("patientNew") PatientDTO patientDto, Model model) {
+//                model.addAttribute("patientNew", new PatientDTO());
+//                return "/patient/";
+//    }
 }
