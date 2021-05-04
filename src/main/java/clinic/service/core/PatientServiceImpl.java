@@ -30,10 +30,10 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
     }
 
     @Override
-    public String getName(Integer id) {
-        return "  "+ dao.findById(id);
+    @Transactional
+    public List<PatientDTO> getPatientsByName(String name) {
+        return mapToDTO(dao.findAllByName(name));
     }
-
 
     //    @Override
 //    @Mappings({

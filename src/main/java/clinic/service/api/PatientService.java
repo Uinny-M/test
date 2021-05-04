@@ -9,6 +9,6 @@ import java.util.List;
 public interface PatientService extends AbstractService<Patient, PatientDTO>{
 
     //get patient by part of name
-//    List<PatientDTO> getAllPatientsByName(String partOfName);
-String getName (Integer id);
+    List<PatientDTO> getPatientsByName(String name);
+
 }
