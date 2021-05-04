@@ -16,7 +16,7 @@ public PatientDaoImpl(){super(Patient.class);}
     public List<Patient> findAllByName(String name) {
         return em.createQuery(
                 "SELECT p FROM Patient p WHERE p.secondName = :name")
-                .setParameter("name",name)
+                .setParameter("name", name)
                 .getResultList();
     }
 }

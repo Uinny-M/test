@@ -38,56 +38,51 @@
     <div class="vertical-menu">
         <a href="http://localhost:8080/T_school_war_exploded/">Главная</a>
         <a href="http://localhost:8080/T_school_war_exploded/patient/" class="active">Пациенты</a>
-        <a href="#">Процедуры</a>
-        <a href="#">Сотрудники</a>
+        <a href="http://localhost:8080/T_school_war_exploded/events/">Процедуры</a>
+        <a href="http://localhost:8080/T_school_war_exploded/employee/">Сотрудники</a>
         <a href="#">Приемная</a>
     </div>
     <div class="content">
-<%--        <form:form action="/T_school_war_exploded/patient/search/${patientName}" method="post" modelAttribute="patientName"--%>
-<%--                   cssClass="form">--%>
-<%--            <b>Поиск</b>--%>
-<%--            <form:input cssClass="form-s" path=""/>--%>
-<%--            <button type="submit" class="btn">Найти</button>--%>
+        <%--        <form:form action="/T_school_war_exploded/patient/search/${patientName}" method="post" modelAttribute="patientName"--%>
+        <%--                   cssClass="form">--%>
+        <%--            <b>Поиск</b>--%>
+        <%--            <form:input cssClass="form-s" path=""/>--%>
+        <%--            <button type="submit" class="btn">Найти</button>--%>
+        <%--        </form:form>--%>
+
+        <button class="btn" style="margin: 10px">
+            <a href="http://localhost:8080/T_school_war_exploded/patient/add" style="color: #efffe9">Новый пациент</a>
+        </button>
+<%--        <form:form action="/T_school_war_exploded/patient/add" method="POST" modelAttribute="patientNew"--%>
+<%--                   cssClass="form form-hidding">--%>
+<%--            <div class="form-group-create row">--%>
+<%--                <b class="col-xs-3">Фамилия</b>--%>
+<%--                <form:input cssClass="form-s" path="secondName"/>--%>
+<%--            </div>--%>
+<%--            <div class="form-group-create row">--%>
+<%--                <b class="col-xs-3">Имя</b>--%>
+<%--                <form:input cssClass="form-s" path="firstName"/>--%>
+<%--            </div>--%>
+<%--            <div class="form-group-create row">--%>
+<%--                <b class="col-xs-3">Отчество</b>--%>
+<%--                <form:input cssClass="form-s" path="middleName"/>--%>
+<%--            </div>--%>
+<%--            <div class="form-group row">--%>
+<%--                <b class="col-xs-3">Дата рождения</b>--%>
+<%--                <form:input cssClass="form-s" type="date" path="birthdate"/>--%>
+<%--            </div>--%>
+<%--            <div class="form-group-create row">--%>
+<%--                <b class="col-xs-3">Пол</b>--%>
+<%--                Мужской <form:checkbox cssClass="form-s" value="MALE" path="gender"/><br>--%>
+<%--                Женский <form:checkbox cssClass="form-s" value="FEMALE" path="gender"/>--%>
+<%--            </div>--%>
+<%--            <div class="form-group-create row">--%>
+<%--                <b class="col-xs-3">№ страховки</b>--%>
+<%--                <form:input cssClass="form-s" path="insurance"/>--%>
+<%--            </div>--%>
+<%--            <button type="submit" class="btn">Сохранить</button>--%>
 <%--        </form:form>--%>
-        <section class="section-hidding">
-            <button id="example_2_1" class="btn"
-                    onclick="document.getElementById('example_2').style.display='block'; document.getElementById('example_2_1').style.display='none'; document.getElementById('example_2_2').style.display='block';"
-                    style="display:none;">Создать
-            </button>
-            <button id="example_2_2" class="btn"
-                    onclick="document.getElementById('example_2').style.display='none'; document.getElementById('example_2_2').style.display='none'; document.getElementById('example_2_1').style.display='block';">
-                Отмена
-            </button>
-            <form:form action="/T_school_war_exploded/patient/" method="POST" modelAttribute="patientNew"
-                       cssClass="form form-hidding">
-                <div class="form-group-create row">
-                    <b class="col-xs-3">Фамилия</b>
-                    <form:input cssClass="form-s" path="secondName"/>
-                </div>
-                <div class="form-group-create row">
-                    <b class="col-xs-3">Имя</b>
-                    <form:input cssClass="form-s" path="firstName"/>
-                </div>
-                <div class="form-group-create row">
-                    <b class="col-xs-3">Отчество</b>
-                    <form:input cssClass="form-s" path="middleName"/>
-                </div>
-                <div class="form-group row">
-                    <b class="col-xs-3">Дата рождения</b>
-                    <form:input cssClass="form-s" type="date" path="birthdate"/>
-                </div>
-                <div class="form-group-create row">
-                    <b class="col-xs-3">Пол</b>
-                    Мужской <form:checkbox cssClass="form-s" value="MALE" path="gender"/>
-                    Женский <form:checkbox cssClass="form-s" value="FEMALE" path="gender"/>
-                </div>
-                <div class="form-group-create row">
-                    <b class="col-xs-3">№ страховки</b>
-                    <form:input cssClass="form-s" path="insurance"/>
-                </div>
-                <button type="submit" class="btn">Сохранить</button>
-            </form:form>
-        </section>
+
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
@@ -112,6 +107,7 @@
             </c:forEach>
             </tbody>
         </table>
+        <br>
     </div><!--/.content-->
 </div><!-- /.container -->
 <footer class="footer">

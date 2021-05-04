@@ -34,13 +34,12 @@
         </div>
     </div>
 </header>
-
 <div class="container">
     <div class="vertical-menu">
         <a href="http://localhost:8080/T_school_war_exploded/" class="active">Главная</a>
         <a href="http://localhost:8080/T_school_war_exploded/patient/" >Пациенты</a>
-        <a href="#">Процедуры</a>
-        <a href="#">Сотрудники</a>
+        <a href="http://localhost:8080/T_school_war_exploded/events/">Процедуры</a>
+        <a href="http://localhost:8080/T_school_war_exploded/employee/">Сотрудники</a>
         <a href="#">Приемная</a>
     </div>
     <div class="content">
@@ -48,12 +47,12 @@
             <a href="http://localhost:8080/T_school_war_exploded/patient/" class="block" >
                 <h2>Пациенты</h2>
             </a>
-            <a href="#" class="block">
+            <a href="http://localhost:8080/T_school_war_exploded/events/" class="block">
                 <h2>Процедуры</h2>
             </a>
         </div>
         <div class="navi-block">
-            <a href="#" class="block">
+            <a href="http://localhost:8080/T_school_war_exploded/employee/" class="block">
                 <h2>Сотрудники</h2>
             </a>
             <a href="#" class="block">

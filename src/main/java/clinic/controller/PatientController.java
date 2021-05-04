@@ -1,7 +1,8 @@
 package clinic.controller;
 
-import clinic.dao.api.PatientDao;
 import clinic.dto.PatientDTO;
+import clinic.service.api.CaseService;
+import clinic.service.api.EmployeeService;
 import clinic.service.api.PatientService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,18 +26,22 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping(value = "/patient")
 public class PatientController {
     private final PatientService patientService;
+    private final CaseService caseService;
+    private final EmployeeService employeeService;
 
     @Autowired
-    public PatientController(PatientService patientService) {
+    public PatientController(PatientService patientService, CaseService caseService, EmployeeService employeeService) {
         this.patientService = patientService;
+        this.caseService = caseService;
+        this.employeeService = employeeService;
     }
 
     //Return Patient by ID
     @GetMapping(value = "/{patientId}")
-    @ResponseBody
     public ModelAndView getPatientById(@PathVariable("patientId") Integer patientId) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("patient", patientService.getOneById(patientId));
+        // modelAndView.addObject("cases", caseService.getAll());
         modelAndView.setViewName("patient");
         return modelAndView;
     }
@@ -53,18 +58,26 @@ public class PatientController {
         return modelAndView;
     }
 
-    @PostMapping(value = "/")
-    public ModelAndView addPatient(@ModelAttribute PatientDTO patientDto) {
-        patientService.create(patientDto);
+    //Return Patient by ID
+    @GetMapping(value = "/add")
+    public ModelAndView getPatientById() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("patientNew", new PatientDTO());
-        modelAndView.setView(new RedirectView("/"));
+        modelAndView.addObject("patient", new PatientDTO());
+        modelAndView.setViewName("patient");
+        return modelAndView;
+    }
+
+    //Add new patient
+    @PostMapping(value = "/add")
+    public ModelAndView addPatient(@ModelAttribute PatientDTO patientDto) {
+        patientService.createOrUpdatePatient(patientDto);
+        ModelAndView modelAndView = new ModelAndView();
+
         return modelAndView;
     }
 
     //Return patients by secondName
     @GetMapping(value = "/search/{name}")
-    @ResponseBody
     public ModelAndView getPatientsByName(@PathVariable(required = false) String name) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("name", name);

@@ -1,6 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ include file="header.html" %>--%>
+<%--<%@ include file="footer.jsp" %>--%>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,6 +15,7 @@
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
 <header class="header">
     <div class="row-logo">
         <div class="col-lg-1">
@@ -28,6 +33,7 @@
         </div>
     </div>
 </header>
+
 <div class="container">
     <div class="vertical-menu">
         <a href="http://localhost:8080/T_school_war_exploded/">Главная</a>
@@ -37,47 +43,84 @@
         <a href="#">Приемная</a>
     </div>
     <div class="content">
-        <form:form action="/T_school_war_exploded/patient/add" method="POST" modelAttribute="patient"
-                   cssClass="form">
-            <div class="form-group-create row">
-                <b class="col-xs-3">Фамилия</b>
-                <form:input cssClass="form-s" path="secondName"/>
-            </div>
-            <div class="form-group-create row">
-                <b class="col-xs-3">Имя</b>
-                <form:input cssClass="form-s" path="firstName"/>
-            </div>
-            <div class="form-group-create row">
-                <b class="col-xs-3">Отчество</b>
-                <form:input cssClass="form-s" path="middleName"/>
-            </div>
-            <div class="form-group row">
-                <b class="col-xs-3">Дата рождения</b>
-                <form:input cssClass="form-s" type="date" path="birthdate"/>
-            </div>
-            <div class="form-group-create row">
-                <b class="col-xs-3">Пол</b>
-                Мужской <form:checkbox cssClass="form-s" value="MALE" path="gender"/><br>
-                Женский <form:checkbox cssClass="form-s" value="FEMALE" path="gender"/>
-            </div>
-            <div class="form-group-create row">
-                <b class="col-xs-3">№ страховки</b>
-                <form:input cssClass="form-s" path="insurance"/>
-            </div>
-            <br>
-            <button type="submit" class="btn">Сохранить изменения</button>
-        </form:form>
+<%--            <form:form action="/T_school_war_exploded/patient/" method="POST" modelAttribute="patientNew"--%>
+<%--                       cssClass="form form-hidding">--%>
+<%--                <div class="form-group-create row">--%>
+<%--                    <b class="col-xs-3">Фамилия</b>--%>
+<%--                    <form:input cssClass="form-s" path="secondName"/>--%>
+<%--                </div>--%>
+<%--                <div class="form-group-create row">--%>
+<%--                    <b class="col-xs-3">Имя</b>--%>
+<%--                    <form:input cssClass="form-s" path="firstName"/>--%>
+<%--                </div>--%>
+<%--                <div class="form-group-create row">--%>
+<%--                    <b class="col-xs-3">Отчество</b>--%>
+<%--                    <form:input cssClass="form-s" path="middleName"/>--%>
+<%--                </div>--%>
+<%--                <div class="form-group row">--%>
+<%--                    <b class="col-xs-3">Дата рождения</b>--%>
+<%--                    <form:input cssClass="form-s" type="date" path="birthdate"/>--%>
+<%--                </div>--%>
+<%--                <div class="form-group-create row">--%>
+<%--                    <b class="col-xs-3">Пол</b>--%>
+<%--                    Мужской <form:checkbox cssClass="form-s" value="MALE" path="gender"/><br>--%>
+<%--                    Женский <form:checkbox cssClass="form-s" value="FEMALE" path="gender"/>--%>
+<%--                </div>--%>
+<%--                <div class="form-group-create row">--%>
+<%--                    <b class="col-xs-3">№ страховки</b>--%>
+<%--                    <form:input cssClass="form-s" path="insurance"/>--%>
+<%--                </div>--%>
+<%--                <button type="submit" class="btn">Сохранить</button>--%>
+<%--            </form:form>--%>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <h3>Список пациентов</h3>
+            <tr>
+                <th width="40%">Диагноз</th>
+                <th width="15%">Дата обращения</th>
+                <th width="15%">Статус</th>
+                <th width="30%">Врач</th>
+            </tr>
+            </thead>
+            <tbody>
+<%--            <c:forEach items="${cases}" var="c">--%>
+<%--                <tr>--%>
+<%--                    <td>--%>
+<%--                        <a href="http://localhost:8080/T_school_war_exploded/cases/${c.patient.id}/${c.id}">${c.diagnosis}</a>--%>
+<%--                    </td>--%>
+<%--                    <td>${c.startDate}</td>--%>
+<%--                    <td>${c.openCase}</td--%>
+<%--                    <td>${c.doctor.secondName}</td>--%>
+<%--                </tr>--%>
+<%--            </c:forEach>--%>
+            </tbody>
+        </table>
         <br>
-        <botton class="btn" style="margin: 10px">
-            <a href="http://localhost:8080/T_school_war_exploded/cases/${patient.id}" style="color: #efffe9">Карточка пациента</a>
-        </botton>
-        <botton class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/prescriptiones/${patient.id}" style="color: #efffe9">Процедурный лист</a>
-        </botton>
 
-
-    </div>
-</div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th colspan="3">Список пациентов</th>
+        </tr>
+        <h3>Список пациентов</h3>
+        <tr>
+            <th width="50%">ФИО</th>
+            <th width="25%">Дата рождения</th>
+            <th width="25%">Номер страховки</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${emp}" var="e">
+            <tr>
+                <td>${e.firstName}</td>
+                <td>${e.secondName}</td>
+                <td>${e.middleName}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    </div><!--/.content-->
+</div><!-- /.container -->
 <footer class="footer">
     <div>
         <div class="text-center">
