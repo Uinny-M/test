@@ -19,7 +19,7 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
-        <form:form action="/T_school_war_exploded/patient/add" method="POST" modelAttribute="patient"
+        <form:form action="/T_school_war_exploded/patient/" method="get" modelAttribute="patient"
                    cssClass="form">
             <div class="form-group-create row">
                 <b class="col-xs-3">Фамилия</b>

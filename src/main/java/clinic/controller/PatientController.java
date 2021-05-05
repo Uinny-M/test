@@ -68,10 +68,9 @@ public class PatientController {
 
     //Add new patient
     @PostMapping(value = "/add")
-    public ModelAndView addPatient(@ModelAttribute PatientDTO patientDto) {
+    public RedirectView addPatient(@ModelAttribute PatientDTO patientDto) {
         patientService.createOrUpdatePatient(patientDto);
-        ModelAndView modelAndView = new ModelAndView();
-        return modelAndView;
+        return new RedirectView("/T_school_war_exploded/patient/");
     }
 
 //    //Return patients by secondName

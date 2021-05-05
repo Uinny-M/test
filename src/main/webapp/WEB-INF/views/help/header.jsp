@@ -13,7 +13,7 @@
         </div>
         <div class="col-lg-3">
             <h4>ИМЯ ПОСЕТИТЕЛЯ</h4>
-            <img src="../../assets/admin.jpg" width="140" height="88" alt="admin.jpg">
+            <img src="${pageContext.request.contextPath}/assets/admin.jpg" width="140" height="88" alt="admin.jpg">
             <button type="submit" class="btn">ВЫЙТИ</button>
         </div>
     </div>
