@@ -21,3 +21,14 @@
 </footer>
 </body>
 </html>
+<style>
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 55px;
+        line-height: 2.5rem;
+        background-color: #efffe9;
+        border-top: 3px solid #28a347;
+    }
+</style>
