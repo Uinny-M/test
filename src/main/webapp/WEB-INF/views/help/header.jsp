@@ -1,7 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--<%@include file="../img/logo-mini.jpg"%>--%>
-<img src="../../resources/img/logo-mini.jpg">
+<img src="./img/logo-mini.jpg">
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -13,7 +13,7 @@
 <header class="header">
     <div class="row-logo">
         <div class="col-lg-1">
-            <img src="../../resources/img/logo-mini.jpg" width="200" height="160" alt="logo-mini.jpg">
+            <img src="./img/logo-mini.jpg" width="200" height="160" alt="logo-mini.jpg">
         </div>
         <div class="col-lg-2">
             <h2>CLINIC</h2>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-lg-3">
             <h4>ИМЯ ПОСЕТИТЕЛЯ</h4>
-            <img src="../../resources/img/admin.jpg" width="140" height="88" alt="admin.jpg">
+            <img src="../img/admin.jpg" width="140" height="88" alt="admin.jpg">
             <button type="submit" class="btn">ВЫЙТИ</button>
         </div>
     </div>

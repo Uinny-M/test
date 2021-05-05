@@ -12,14 +12,8 @@ import java.util.List;
 
 @Service
 public class EmployeeServiceImpl extends AbstractServiceImpl<Employee, EmployeeDTO, EmployeeDao, EmployeeMapper> implements EmployeeService {
-
     @Autowired
     public EmployeeServiceImpl(EmployeeDao dao, EmployeeMapper mapper) {
         super(dao, mapper);
-    }
-
-    @Override
-    public List<Employee> genEmployees() {
-        return dao.findAll();
     }
 }

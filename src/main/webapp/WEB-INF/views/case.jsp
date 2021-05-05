@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta/>
     <link href="css/t.css" rel="stylesheet" type="text/css">
-    <title>Пациенты</title>
+    <title>CLINIC</title>
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -19,42 +19,41 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
-        <form:form action="/T_school_war_exploded/patient/add" method="POST" modelAttribute="patient"
+        <form:form action="/T_school_war_exploded/cases/add/" method="POST" modelAttribute="caseNew"
                    cssClass="form">
             <div class="form-group-create row">
-                <b class="col-xs-3">Фамилия</b>
-                <form:input cssClass="form-s" path="secondName"/>
+                <b class="col-xs-3">Начало</b>
+                <form:input cssClass="form-s" type="data" path="startDate"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">Имя</b>
-                <form:input cssClass="form-s" path="firstName"/>
+                <b class="col-xs-3">Окончание</b>
+                <form:input cssClass="form-s" type="data" path="endDate"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">Отчество</b>
-                <form:input cssClass="form-s" path="middleName"/>
+                <b class="col-xs-3">Диагноз</b>
+                <form:input cssClass="form-s" path="diagnosis"/>
             </div>
             <div class="form-group row">
-                <b class="col-xs-3">Дата рождения</b>
-                <form:input cssClass="form-s" type="date" path="birthdate"/>
+                <b class="col-xs-3">Врач</b>
+                <form:input cssClass="form-s" type="date" path="doctor"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">Пол</b>
-                Мужской <form:checkbox cssClass="form-s" value="MALE" path="gender"/><br>
-                Женский <form:checkbox cssClass="form-s" value="FEMALE" path="gender"/>
-            </div>
-            <div class="form-group-create row">
-                <b class="col-xs-3">№ страховки</b>
-                <form:input cssClass="form-s" path="insurance"/>
+                <b class="col-xs-3">Пациент</b>
+                <form:input cssClass="form-s" path="patient"/>
             </div>
             <br>
             <button type="submit" class="btn">Сохранить изменения</button>
         </form:form>
         <br>
+        <br>
+        <button type="submit" class="btn">Закрыть больничный</button>
         <botton class="btn" style="margin: 10px">
-            <a href="http://localhost:8080/T_school_war_exploded/cases/${patient.id}" style="color: #efffe9">Карточка пациента</a>
+            <a href="http://localhost:8080/T_school_war_exploded/cases/${patient.id}" style="color: #efffe9">Карточка
+                пациента</a>
         </botton>
         <botton class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/prescriptiones/${patient.id}" style="color: #efffe9">Процедурный лист</a>
+            <a href="http://localhost:8080/T_school_war_exploded/prescriptiones/${patient.id}" style="color: #efffe9">Процедурный
+                лист</a>
         </botton>
 
 
@@ -66,10 +65,11 @@
 
 <style>
     /*Menu*/
-  .vertical-menu a.menu-patient{
-      background-color: #28a347;
-      color: #efffe9;
-  }
+    .vertical-menu a.menu-patient {
+        background-color: #28a347;
+        color: #efffe9;
+    }
+
     /*Content*/
     .content {
         background-color: #fff;
@@ -86,6 +86,7 @@
         top: 165px;
         overflow-y: scroll;
     }
+
     /*Form-search*/
     .content .btn {
         font-size: 14px;
@@ -98,44 +99,53 @@
         text-transform: capitalize;
         transition: all 0.5s ease 0s;
     }
+
     .section-hidding {
         margin: 10px;
         margin-top: 100px;
     }
+
     .form {
         width: 100%;
         height: auto;
         display: block;
         margin: 10px;
     }
+
     .form-hidding {
         margin-top: 30px;
         border-bottom: 1px solid #28a347;
         border-top: 1px solid #28a347;
     }
+
     .form-group-search {
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: inline;
     }
+
     .row {
         margin-top: 20px;
     }
+
     .form-s {
         background-color: #f9e9ff;
         width: 300px;
         border: 1px solid #28a347;
     }
+
     .form b {
         font-size: 17px;
         color: #28a347;
         transition: all 0.5s ease 0s;
     }
+
     /*Table*/
     .table {
         background-color: #efffe9;
     }
+
     .table :active {
         background-color: #efffe9;
     }

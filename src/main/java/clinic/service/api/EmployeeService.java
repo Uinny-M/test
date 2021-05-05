@@ -8,5 +8,4 @@ import java.util.List;
 
 
 public interface EmployeeService extends AbstractService<Employee, EmployeeDTO> {
- public List<Employee> genEmployees();
 }

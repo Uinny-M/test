@@ -72,7 +72,6 @@ public class PatientController {
     public ModelAndView addPatient(@ModelAttribute PatientDTO patientDto) {
         patientService.createOrUpdatePatient(patientDto);
         ModelAndView modelAndView = new ModelAndView();
-
         return modelAndView;
     }
 
