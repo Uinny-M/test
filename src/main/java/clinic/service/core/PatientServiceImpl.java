@@ -23,7 +23,8 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
     @Override
     @Transactional
     public List<PatientDTO> getPatientsByName(String name) {
-        return mapToDTO(dao.findAllByName(name));
+        if (name == null||name.isEmpty()) return mapToDTO(dao.findAll());
+        else return mapToDTO(dao.findAllByName(name));
     }
 
     @Override

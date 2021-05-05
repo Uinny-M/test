@@ -20,52 +20,27 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
-        <%--        <form:form action="/T_school_war_exploded/patient/search/${patientName}" method="post" modelAttribute="patientName"--%>
-        <%--                   cssClass="form">--%>
-        <%--            <b>Поиск</b>--%>
-        <%--            <form:input cssClass="form-s" path=""/>--%>
-        <%--            <button type="submit" class="btn">Найти</button>--%>
-        <%--        </form:form>--%>
+<%--                <form:form action="/T_school_war_exploded/patient/" method="get" modelAttribute="search"--%>
+<%--                           cssClass="form">--%>
+<%--                    <b>Поиск</b>--%>
+<%--                    <form:input cssClass="form-s" name="name" path=""/>--%>
+<%--                    <button type="submit" class="btn">Найти</button>--%>
+<%--                </form:form>--%>
+        <form:form action="/T_school_war_exploded/patient/" method="get">
+            UserName : <input type="text"  name="name" value="${search}"/> <br><br>
+            <button type="submit" class="btn">Найти</button>
+        </form:form>
 
         <button class="btn" style="margin: 10px">
             <a href="http://localhost:8080/T_school_war_exploded/patient/add" style="color: #efffe9">Новый пациент</a>
         </button>
-<%--        <form:form action="/T_school_war_exploded/patient/add" method="POST" modelAttribute="patientNew"--%>
-<%--                   cssClass="form form-hidding">--%>
-<%--            <div class="form-group-create row">--%>
-<%--                <b class="col-xs-3">Фамилия</b>--%>
-<%--                <form:input cssClass="form-s" path="secondName"/>--%>
-<%--            </div>--%>
-<%--            <div class="form-group-create row">--%>
-<%--                <b class="col-xs-3">Имя</b>--%>
-<%--                <form:input cssClass="form-s" path="firstName"/>--%>
-<%--            </div>--%>
-<%--            <div class="form-group-create row">--%>
-<%--                <b class="col-xs-3">Отчество</b>--%>
-<%--                <form:input cssClass="form-s" path="middleName"/>--%>
-<%--            </div>--%>
-<%--            <div class="form-group row">--%>
-<%--                <b class="col-xs-3">Дата рождения</b>--%>
-<%--                <form:input cssClass="form-s" type="date" path="birthdate"/>--%>
-<%--            </div>--%>
-<%--            <div class="form-group-create row">--%>
-<%--                <b class="col-xs-3">Пол</b>--%>
-<%--                Мужской <form:checkbox cssClass="form-s" value="MALE" path="gender"/><br>--%>
-<%--                Женский <form:checkbox cssClass="form-s" value="FEMALE" path="gender"/>--%>
-<%--            </div>--%>
-<%--            <div class="form-group-create row">--%>
-<%--                <b class="col-xs-3">№ страховки</b>--%>
-<%--                <form:input cssClass="form-s" path="insurance"/>--%>
-<%--            </div>--%>
-<%--            <button type="submit" class="btn">Сохранить</button>--%>
-<%--        </form:form>--%>
+
 
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
                 <th colspan="3">Список пациентов</th>
             </tr>
-            <h3>Список пациентов</h3>
             <tr>
                 <th width="50%">ФИО</th>
                 <th width="25%">Дата рождения</th>
@@ -104,8 +79,8 @@
         width: auto;
         right: 0;
         display: block;
-        margin: 0px;
-        padding: 0px;
+        /*margin: 0px;*/
+        padding: 20px;
         list-style: none;
         position: absolute;
         left: 200px;

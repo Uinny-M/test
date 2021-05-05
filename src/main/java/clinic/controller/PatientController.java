@@ -48,12 +48,11 @@ public class PatientController {
 
     //Return all patients
     @GetMapping(value = "/")
-    @ResponseBody
-    public ModelAndView getAllPatients() {
+    public ModelAndView getAllPatients(@RequestParam(required = false, value = "name") String name) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("patients", patientService.getAll());
+        modelAndView.addObject("patients", patientService.getPatientsByName(name));
         modelAndView.addObject("patientNew", new PatientDTO());
-//        modelAndView.addObject("patientName", new String());
+        modelAndView.addObject("search", name);
         modelAndView.setViewName("patients");
         return modelAndView;
     }
@@ -75,15 +74,15 @@ public class PatientController {
         return modelAndView;
     }
 
-    //Return patients by secondName
-    @GetMapping(value = "/search/{name}")
-    public ModelAndView getPatientsByName(@PathVariable(required = false) String name) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("name", name);
-        modelAndView.addObject("patients", patientService.getPatientsByName(name));
-        modelAndView.setViewName("patients");
-        return modelAndView;
-    }
+//    //Return patients by secondName
+//    @GetMapping(value = "/search/{name}")
+//    public ModelAndView getPatientsByName(@PathVariable(required = false) String name) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("name", name);
+//        modelAndView.addObject("patients", patientService.getPatientsByName(name));
+//        modelAndView.setViewName("patients");
+//        return modelAndView;
+//    }
 
 //    //Return patients by secondName
 //    @GetMapping(value = "/search/{name}")

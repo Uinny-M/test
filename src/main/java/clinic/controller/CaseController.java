@@ -21,7 +21,7 @@ public class CaseController {
     @GetMapping(value = "/{patientId}")
     public ModelAndView getAllCases(@PathVariable Integer patientId) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("cases", caseService.getCases(patientId));
+        modelAndView.addObject("cases", caseService.getAllOpenCases());
         modelAndView.setViewName("cases");
         return modelAndView;
     }

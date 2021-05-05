@@ -1,19 +1,10 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@include file="../img/logo-mini.jpg"%>--%>
-<img src="./img/logo-mini.jpg">
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link href="./css/t.css" rel="stylesheet" type="text/css">
-    <title>CLINIC</title>
-    
-</head>
-<body>
+
 <header class="header">
     <div class="row-logo">
         <div class="col-lg-1">
-            <img src="./img/logo-mini.jpg" width="200" height="160" alt="logo-mini.jpg">
+            <img src="${pageContext.request.contextPath}/assets/logo-mini.jpg" width="200" height="160" alt="logo-mini.jpg">
         </div>
         <div class="col-lg-2">
             <h2>CLINIC</h2>
@@ -22,13 +13,13 @@
         </div>
         <div class="col-lg-3">
             <h4>ИМЯ ПОСЕТИТЕЛЯ</h4>
-            <img src="../img/admin.jpg" width="140" height="88" alt="admin.jpg">
+            <img src="../../assets/admin.jpg" width="140" height="88" alt="admin.jpg">
             <button type="submit" class="btn">ВЫЙТИ</button>
         </div>
     </div>
 </header>
-</body>
-</html>
+
+
 <style>
     .header {
         position: absolute;

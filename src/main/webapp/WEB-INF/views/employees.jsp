@@ -19,7 +19,9 @@
   <div class="content">
       <table class="table table-striped table-bordered table-hover">
         <thead>
-        <h3>Список сотрудников</h3>
+        <tr>
+          <th colspan="3">Список сотрудников</th>
+        </tr>
         <tr>
           <th width="50%">ФИО</th>
           <th width="25%">Должность</th>
@@ -55,8 +57,8 @@ height: auto;
 width: auto;
 right: 0;
 display: block;
-margin: 0px;
-padding: 0px;
+/*margin: 0px;*/
+padding: 20px;
 list-style: none;
 position: absolute;
 left: 200px;

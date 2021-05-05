@@ -14,6 +14,5 @@ public interface PatientMapper extends AbstractMapper<Patient, PatientDTO> {
             @Mapping(target = "birthdate", source = "entity.birthdate", dateFormat = "yyyy-MM-dd")
     })
     PatientDTO mapEntityToDto(Patient entity);
-
     Patient mapDtoToEntity(PatientDTO dto);
 }

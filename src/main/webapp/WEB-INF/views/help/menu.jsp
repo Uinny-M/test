@@ -1,18 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: marga
-  Date: 05.05.2021
-  Time: 12:27
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link href="../css/t.css" rel="stylesheet" type="text/css">
-    <title>CLINIC</title>
-</head>
-<body>
+
 <div class="vertical-menu">
     <a href="http://localhost:8080/T_school_war_exploded/" class="menu-index">Главная</a>
     <a href="http://localhost:8080/T_school_war_exploded/patient/" class="menu-patient">Пациенты</a>
@@ -20,8 +8,7 @@
     <a href="http://localhost:8080/T_school_war_exploded/employee/" class="menu-employees">Сотрудники</a>
     <a href="#">Приемная</a>
 </div>
-</body>
-</html>
+
 <style>
     .vertical-menu {
         display: block;

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CaseServiceImpl extends AbstractServiceImpl<Case, CaseDTO, CaseDao, CaseMapper> implements CaseService {
@@ -24,7 +25,12 @@ public class CaseServiceImpl extends AbstractServiceImpl<Case, CaseDTO, CaseDao,
     }
 
     @Override
+    public List<CaseDTO> getAllOpenCases() {
+        return mapToDTO(dao.findAll().stream().filter(Case::isOpenCase).collect(Collectors.toList()));
+    }
+
+    @Override
     public List<Case> getCases(Integer i) {
-        return dao.findAll();
+        return dao.findAll().stream().filter(Case::isOpenCase).collect(Collectors.toList());
     }
 }

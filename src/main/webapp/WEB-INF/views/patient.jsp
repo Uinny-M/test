@@ -39,8 +39,8 @@
             </div>
             <div class="form-group-create row">
                 <b class="col-xs-3">Пол</b>
-                Мужской <form:checkbox cssClass="form-s" value="MALE" path="gender"/><br>
-                Женский <form:checkbox cssClass="form-s" value="FEMALE" path="gender"/>
+                Мужской <form:radiobutton cssClass="form-s" value="MALE" path="gender"/><br>
+                Женский <form:radiobutton cssClass="form-s" value="FEMALE" path="gender"/>
             </div>
             <div class="form-group-create row">
                 <b class="col-xs-3">№ страховки</b>
@@ -77,8 +77,8 @@
         width: auto;
         right: 0;
         display: block;
-        margin: 0px;
-        padding: 0px;
+        /*margin: 0px;*/
+        padding: 20px;
         list-style: none;
         position: absolute;
         left: 200px;

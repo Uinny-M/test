@@ -74,7 +74,9 @@
 <%--            </form:form>--%>
         <table class="table table-striped table-bordered table-hover">
             <thead>
-            <h3>Список пациентов</h3>
+            <tr>
+                <th colspan="4">Список страховых случаев</th>
+            </tr>
             <tr>
                 <th width="40%">Диагноз</th>
                 <th width="15%">Дата обращения</th>

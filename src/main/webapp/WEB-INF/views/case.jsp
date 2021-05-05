@@ -55,8 +55,6 @@
             <a href="http://localhost:8080/T_school_war_exploded/prescriptiones/${patient.id}" style="color: #efffe9">Процедурный
                 лист</a>
         </botton>
-
-
     </div>
 </div>
 <jsp:include page="help/footer.jsp"></jsp:include>
@@ -69,7 +67,6 @@
         background-color: #28a347;
         color: #efffe9;
     }
-
     /*Content*/
     .content {
         background-color: #fff;
@@ -77,8 +74,7 @@
         width: auto;
         right: 0;
         display: block;
-        margin: 0px;
-        padding: 0px;
+        padding: 20px;
         list-style: none;
         position: absolute;
         left: 200px;
