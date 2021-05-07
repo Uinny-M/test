@@ -10,4 +10,5 @@ public interface EventDao extends AbstractDao<Event> {
     List<Event> findAllByPatientId(Integer patientId);
     List<Event> findAllByDate(LocalDate date);
     List<Event> findAllByDateTime(LocalDate date, LocalTime time);
+    List<Event> findAllByCaseId(Long caseId);
 }

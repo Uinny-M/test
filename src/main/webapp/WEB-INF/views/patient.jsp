@@ -54,7 +54,7 @@
             <a href="http://localhost:8080/T_school_war_exploded/cases/${patient.id}" style="color: #efffe9">Карточка пациента</a>
         </botton>
         <botton class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/prescriptiones/${patient.id}" style="color: #efffe9">Процедурный лист</a>
+            <a href="http://localhost:8080/T_school_war_exploded/cases/prescriptions/${patient.id}" style="color: #efffe9">Процедурный лист</a>
         </botton>
 
 

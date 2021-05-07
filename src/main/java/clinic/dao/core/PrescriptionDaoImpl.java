@@ -13,11 +13,17 @@ public class PrescriptionDaoImpl extends AbstractHibernateDao<Prescription> impl
         super(Prescription.class);
     }
 
-    @Transactional
     public List<Prescription> findAllByPatientId(Integer patientId) {
         return em.createQuery(
                 "SELECT p FROM Prescription p WHERE p.patient.id = :patientId")
                 .setParameter("patientId", patientId)
+                .getResultList();
+    }
+
+    public List<Prescription> findAllByCaseId(Long caseId) {
+        return em.createQuery(
+                "SELECT p FROM Prescription p WHERE p.patientCase.id = :caseId")
+                .setParameter("caseId", caseId)
                 .getResultList();
     }
 }

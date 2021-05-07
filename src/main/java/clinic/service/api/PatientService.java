@@ -12,4 +12,5 @@ public interface PatientService extends AbstractService<Patient, PatientDTO> {
 
     PatientDTO createOrUpdatePatient(PatientDTO patientDTO);
 
+
 }

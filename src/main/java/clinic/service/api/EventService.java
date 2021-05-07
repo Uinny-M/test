@@ -11,4 +11,6 @@ public interface EventService extends AbstractService<Event, EventDTO> {
     List<EventDTO> getAllEventsToday();
 
     List<EventDTO> getAllEventsNow();
+
+    List<EventDTO> getAllByCaseId(Long caseId);
 }

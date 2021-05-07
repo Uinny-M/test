@@ -10,4 +10,5 @@ public interface CaseService extends AbstractService<Case, CaseDTO>{
     List<CaseDTO> getCasesByPatientId(Integer patientId);
     List<Case> getCases(Integer i);
     List<CaseDTO>getAllOpenCases();
+    void closeCase(Long caseId);
 }

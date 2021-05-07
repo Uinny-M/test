@@ -41,4 +41,9 @@ public class EventDaoImpl extends AbstractHibernateDao<Event> implements EventDa
                 .setParameter("time", time)
                 .getResultList();
     }
+
+    @Transactional
+    public List<Event> findAllByCaseId(Long caseId) {
+        return null; //todo
+    }
 }

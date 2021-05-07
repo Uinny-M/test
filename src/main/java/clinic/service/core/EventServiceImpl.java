@@ -7,6 +7,7 @@ import clinic.mappers.EventMapper;
 import clinic.service.api.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -21,20 +22,25 @@ public class EventServiceImpl extends AbstractServiceImpl<Event, EventDTO, Event
         super(dao, mapper);
     }
 
-    @Override
+    @Transactional
     public List<EventDTO> getAllByPatientId(Integer patientId) {
         return mapToDTO(dao.findAllByPatientId(patientId));
     }
 
-    @Override
+    @Transactional
     public List<EventDTO> getAllEventsToday() {
         return mapToDTO(dao.findAllByDate(LocalDate.now()));
     }
 
-    @Override
+    @Transactional
     public List<EventDTO> getAllEventsNow() {
         LocalDate date = LocalDate.now();
         LocalTime endTime = LocalTime.now().plusHours(1);
         return mapToDTO(dao.findAllByDateTime(date, endTime));
+    }
+
+    @Transactional
+    public List<EventDTO> getAllByCaseId(Long caseId) {
+        return mapToDTO(dao.findAllByCaseId(caseId));
     }
 }
