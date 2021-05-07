@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="css/t.css" rel="stylesheet" type="text/css">
-    <title>Пациенты</title>
+    <title>Главная</title>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
             <a href="http://localhost:8080/T_school_war_exploded/employee/" class="block">
                 <h2>Сотрудники</h2>
             </a>
-            <a href="#" class="block">
+            <a href="http://localhost:8080/T_school_war_exploded/employee/manipulation" class="block">
                 <h2>Приемная</h2>
             </a>
         </div>

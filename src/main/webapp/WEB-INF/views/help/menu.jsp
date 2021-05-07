@@ -4,9 +4,9 @@
 <div class="vertical-menu">
     <a href="http://localhost:8080/T_school_war_exploded/" class="menu-index">Главная</a>
     <a href="http://localhost:8080/T_school_war_exploded/patient/" class="menu-patient">Пациенты</a>
-    <a href="http://localhost:8080/T_school_war_exploded/events/" class="menu-events">Процедуры</a>
+    <a href="http://localhost:8080/T_school_war_exploded/event/" class="menu-events">Процедуры</a>
     <a href="http://localhost:8080/T_school_war_exploded/employee/" class="menu-employees">Сотрудники</a>
-    <a href="#">Приемная</a>
+    <a href="http://localhost:8080/T_school_war_exploded/employee/manipulation" class="menu-staff">Приемная</a>
 </div>
 
 <style>

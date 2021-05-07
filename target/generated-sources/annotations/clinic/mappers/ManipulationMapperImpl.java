@@ -2,6 +2,7 @@ package clinic.mappers;
 
 import clinic.dto.ManipulationDTO;
 import clinic.entities.Manipulation;
+import clinic.entities.enums.ManipulationType;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-05-05T23:09:35+0300",
+    date = "2021-05-07T08:20:27+0300",
     comments = "version: 1.4.1.Final, compiler: javac, environment: Java 13.0.2 (AdoptOpenJDK)"
 )
 @Component
@@ -51,6 +52,13 @@ public class ManipulationMapperImpl implements ManipulationMapper {
 
         ManipulationDTO manipulationDTO = new ManipulationDTO();
 
+        manipulationDTO.setId( entity.getId() );
+        manipulationDTO.setTitle( entity.getTitle() );
+        if ( entity.getType() != null ) {
+            manipulationDTO.setType( entity.getType().name() );
+        }
+        manipulationDTO.setDeleted( entity.isDeleted() );
+
         return manipulationDTO;
     }
 
@@ -61,6 +69,13 @@ public class ManipulationMapperImpl implements ManipulationMapper {
         }
 
         Manipulation manipulation = new Manipulation();
+
+        manipulation.setId( dto.getId() );
+        manipulation.setTitle( dto.getTitle() );
+        if ( dto.getType() != null ) {
+            manipulation.setType( Enum.valueOf( ManipulationType.class, dto.getType() ) );
+        }
+        manipulation.setDeleted( dto.isDeleted() );
 
         return manipulation;
     }

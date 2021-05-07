@@ -11,4 +11,8 @@ public enum ManipulationType {
 //    PROCEDURE("Процедура"),
 //    MEDICAMENT("Лекарство");
 //    private final String description;
+//
+//    public String getDescription() {
+//        return description;
+//    }
 }

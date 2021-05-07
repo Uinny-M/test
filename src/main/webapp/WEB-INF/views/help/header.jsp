@@ -1,10 +1,12 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <header class="header">
     <div class="row-logo">
         <div class="col-lg-1">
-            <img src="${pageContext.request.contextPath}/assets/logo-mini.jpg" width="200" height="160" alt="logo-mini.jpg">
+            <a href="http://localhost:8080/T_school_war_exploded/">
+                <img src="${pageContext.request.contextPath}/assets/logo-mini.jpg" width="200" height="160"
+                     alt="logo-mini.jpg">
+            </a>
         </div>
         <div class="col-lg-2">
             <h2>CLINIC</h2>
@@ -30,6 +32,7 @@
         background-color: #efffe9;
         border-bottom: 3px solid #28a347;
     }
+
     .row-logo {
         display: flex;
         flex: 1;
@@ -37,10 +40,12 @@
         line-height: 50px;
         color: #28a347;
     }
+
     .col-lg-1 {
         min-width: 200px;
         max-width: 200px;
     }
+
     .col-lg-2 {
         text-align: center;
         height: 16.5rem;
@@ -48,11 +53,13 @@
         min-width: 300px;
         overflow: hidden;
     }
+
     .col-lg-3 {
         text-align: center;
         min-width: 200px;
         max-width: 200px;
     }
+
     .col-lg-3 .btn {
         font-size: 14px;
         color: #fff;

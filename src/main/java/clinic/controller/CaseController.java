@@ -21,25 +21,26 @@ public class CaseController {
     @GetMapping(value = "/{patientId}")
     public ModelAndView getAllCases(@PathVariable Integer patientId) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("cases", caseService.getAllOpenCases());
+//        modelAndView.addObject("cases", caseService.getAllOpenCases());
+        modelAndView.addObject("cases", caseService.getAll());
         modelAndView.setViewName("cases");
         return modelAndView;
     }
 
-    //Return Case by ID
-    @GetMapping(value = "/add")
-    public ModelAndView getPatientById() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("caseNew", new CaseDTO());
-        modelAndView.setViewName("case");
-        return modelAndView;
-    }
-
-    //Add new case
-    @PostMapping(value = "/add")
-    public ModelAndView addCase(@ModelAttribute CaseDTO caseDTO) {
-        caseService.createOrUpdate(caseDTO);
-        ModelAndView modelAndView = new ModelAndView(new RedirectView());
-        return modelAndView;
-    }
+//    //Return Case by ID
+//    @GetMapping(value = "/add")
+//    public ModelAndView getPatientById() {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("caseNew", new CaseDTO());
+//        modelAndView.setViewName("case");
+//        return modelAndView;
+//    }
+//
+//    //Add new case
+//    @PostMapping(value = "/add")
+//    public ModelAndView addCase(@ModelAttribute CaseDTO caseDTO) {
+//        caseService.createOrUpdate(caseDTO);
+//        ModelAndView modelAndView = new ModelAndView(new RedirectView());
+//        return modelAndView;
+//    }
 }

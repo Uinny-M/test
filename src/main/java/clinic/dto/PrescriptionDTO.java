@@ -25,7 +25,7 @@ public class PrescriptionDTO {
     private Manipulation manipulation;
 
     //start day of prescription
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
     //duration of manipulation (number of days)

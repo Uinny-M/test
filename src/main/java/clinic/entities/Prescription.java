@@ -59,10 +59,6 @@ public class Prescription {
 //    @Enumerated(EnumType.ORDINAL)
 //    private Times times;
 
-    // manipulation's schedule
-    @Column(name = "schedule", length = 255)
-    private String schedule;
-
     //how many times a day
     @Column(name = "daily_chart", nullable = false)
     private byte dailyChart;

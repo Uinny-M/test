@@ -20,35 +20,40 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
-        <form:form action="/T_school_war_exploded/patient/" cssClass="form" method="get">
-            <input type="text" class="form-s" name="name" style="float: left" placeholder="Фамилия" value="${search}"/>
+        <form:form action="/T_school_war_exploded/event/" cssClass="form" method="get">
+            <input type="date" class="form-s" name="date" style="float: left" value="${date}"/>
             <button type="submit" class="btn" style="margin-left: 20px;">Найти</button>
         </form:form>
 
         <button class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/patient/add" style="color: #efffe9">Новый пациент</a>
+            <a href="http://localhost:8080/T_school_war_exploded/patient/" style="color: #efffe9">Поиск по пациентам</a>
         </button>
         <br>
 
         <table class="table table-striped table-bordered table-hover" style="margin-top: 20px;">
             <thead>
             <tr>
-                <th colspan="3">Список пациентов</th>
+                <th colspan="5">Процедурный лист</th>
             </tr>
             <tr>
-                <th width="50%">ФИО</th>
-                <th width="25%">Дата рождения</th>
-                <th width="25%">Номер страховки</th>
+                <th width="15%">Дата и время</th>
+                <th width="35%">ФИО пациента</th>
+                <th width="10%">Вид процедуры</th>
+                <th width="15%">Лекарство</th>
+                <th width="25%">Статус</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${patients}" var="p">
+            <c:forEach items="${events}" var="e">
                 <tr>
-                    <td>
-                        <a href="http://localhost:8080/T_school_war_exploded/patient/${p.id}">${p.secondName} ${p.firstName} ${p.middleName}</a>
-                    </td>
-                    <td>${p.birthdate}</td>
-                    <td>${p.insurance}</td>
+                        <%--                    <td>--%>
+                        <%--                        <a href="http://localhost:8080/T_school_war_exploded/patient/${e.id}">${p.secondName} ${p.firstName} ${p.middleName}</a>--%>
+                        <%--                    </td>--%>
+                    <td>${e.date} ${e.time}</td>
+                    <td>${e.patient.secondName} ${e.patient.firstName} ${e.patient.middleName}</td>
+                    <td>${e.manipulation.title}</td>
+                    <td>${e.prescription.dosage} ${e.prescription.drug}</td>
+                    <td>${e.status}</td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -62,10 +67,11 @@
 
 <style>
     /*Menu*/
-    .vertical-menu a.menu-patient {
+    .vertical-menu a.menu-events {
         background-color: #28a347;
         color: #efffe9;
     }
+
     /*Content*/
     .content {
         background-color: #fff;
@@ -82,6 +88,7 @@
         top: 165px;
         overflow-y: scroll;
     }
+
     /*Form-search*/
     .content .btn {
         font-size: 14px;
@@ -94,35 +101,42 @@
         text-transform: capitalize;
         transition: all 0.5s ease 0s;
     }
+
     .form {
         width: 100%;
         height: auto;
         display: block;
         margin: 10px;
     }
+
     .form-group-search {
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: inline;
     }
+
     .row {
         margin-top: 20px;
     }
+
     .form-s {
         background-color: #f9e9ff;
         width: 300px;
         border: 1px solid #28a347;
     }
+
     .form b {
         font-size: 17px;
         color: #28a347;
         transition: all 0.5s ease 0s;
     }
+
     /*Table*/
     .table {
         background-color: #efffe9;
     }
+
     .table :active {
         background-color: #efffe9;
     }

@@ -22,7 +22,7 @@ public class Case {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     //patient's id
     @ManyToOne
@@ -50,11 +50,11 @@ public class Case {
     @Column(name = "open", nullable = false, columnDefinition = "TINYINT(1)")
     private boolean openCase;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

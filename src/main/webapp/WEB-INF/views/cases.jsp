@@ -85,16 +85,17 @@
             </tr>
             </thead>
             <tbody>
-<%--            <c:forEach items="${cases}" var="c">--%>
-<%--                <tr>--%>
+            <c:forEach items="${cases}" var="c">
+                <tr>
 <%--                    <td>--%>
 <%--                        <a href="http://localhost:8080/T_school_war_exploded/cases/${c.patient.id}/${c.id}">${c.diagnosis}</a>--%>
 <%--                    </td>--%>
-<%--                    <td>${c.startDate}</td>--%>
-<%--                    <td>${c.openCase}</td--%>
-<%--                    <td>${c.doctor.secondName}</td>--%>
-<%--                </tr>--%>
-<%--            </c:forEach>--%>
+                    <td>${c.diagnosis}</td>
+                    <td>${c.startDate}</td>
+                    <td>${c.openCase}</td
+                    <td>${c.doctor.secondName}</td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
         <br>
