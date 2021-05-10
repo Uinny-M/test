@@ -16,13 +16,13 @@ public class PrescriptionDTO {
     private Long id;
 
     //patient
-    private Patient patient;
+    private PatientDTO patient;
 
     //case
-    private Case patientCase;
+    private CaseDTO patientCase;
 
     //type of the manipulation
-    private Manipulation manipulation;
+    private ManipulationDTO manipulation;
 
     //start day of prescription
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -61,28 +61,44 @@ public class PrescriptionDTO {
         this.id = id;
     }
 
-    public Patient getPatient() {
+    public PatientDTO getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(PatientDTO patient) {
         this.patient = patient;
     }
 
-    public Case getPatientCase() {
+    public CaseDTO getPatientCase() {
         return patientCase;
     }
 
-    public void setPatientCase(Case patientCase) {
+    public void setPatientCase(CaseDTO patientCase) {
         this.patientCase = patientCase;
     }
 
-    public Manipulation getManipulation() {
+    public ManipulationDTO getManipulation() {
         return manipulation;
     }
 
-    public void setManipulation(Manipulation manipulation) {
+    public void setManipulation(ManipulationDTO manipulation) {
         this.manipulation = manipulation;
+    }
+
+    public Set<Weekday> getWeekdays() {
+        return weekdays;
+    }
+
+    public void setWeekdays(Set<Weekday> weekdays) {
+        this.weekdays = weekdays;
+    }
+
+    public Set<Times> getTimes() {
+        return times;
+    }
+
+    public void setTimes(Set<Times> times) {
+        this.times = times;
     }
 
     public LocalDate getStartDate() {

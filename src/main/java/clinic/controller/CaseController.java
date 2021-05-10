@@ -14,9 +14,11 @@ import java.time.LocalDate;
 @RequestMapping(value = "/cases")
 public class CaseController {
     private final CaseService caseService;
+    public final PrescriptionService prescriptionService;
 
-    public CaseController(CaseService caseService) {
+    public CaseController(CaseService caseService, PrescriptionService prescriptionService) {
         this.caseService = caseService;
+        this.prescriptionService = prescriptionService;
     }
 
     //Return all cases by PatientId
@@ -32,7 +34,7 @@ public class CaseController {
     public ModelAndView getCaseById(@PathVariable("caseId") Long caseId) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("case", caseService.getOneById(caseId));
-        // modelAndView.addObject("cases", caseService.getAll());
+        modelAndView.addObject("prescription", prescriptionService.getAllByCaseId(caseId));
         modelAndView.setViewName("patientCase");
         return modelAndView;
     }
@@ -51,13 +53,13 @@ public class CaseController {
         //Add new case
     @PostMapping(value = "/update")
     public RedirectView addPatientCase(@ModelAttribute CaseDTO caseDTO) {
-        caseService.createOrUpdate(caseDTO);
+        caseService.createOrUpdate(caseDTO); //todo сделать отдельный метод
 //        ModelAndView modelAndView = new ModelAndView(new RedirectView());
         return new RedirectView("/T_school_war_exploded/cases/");
     }
 
    // Add new case
-    @PostMapping(value = "/update/{patientId}/close")
+    @PostMapping(value = "/close/{caseId}")
     public ModelAndView closeCase(@PathVariable Long caseId) {
         caseService.closeCase(caseId);
         ModelAndView modelAndView = new ModelAndView(new RedirectView());

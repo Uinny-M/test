@@ -2,11 +2,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <div class="vertical-menu">
-    <a href="http://localhost:8080/T_school_war_exploded/" class="menu-index">Главная</a>
-    <a href="http://localhost:8080/T_school_war_exploded/patient/" class="menu-patient">Пациенты</a>
-    <a href="http://localhost:8080/T_school_war_exploded/event/" class="menu-events">Процедуры</a>
-    <a href="http://localhost:8080/T_school_war_exploded/employee/" class="menu-employees">Сотрудники</a>
-    <a href="http://localhost:8080/T_school_war_exploded/employee/manipulation" class="menu-staff">Приемная</a>
+    <a href="${pageContext.request.contextPath}/" class="menu-index">Главная</a>
+    <a href="${pageContext.request.contextPath}/patient/" class="menu-patient">Пациенты</a>
+    <a href="${pageContext.request.contextPath}/event/" class="menu-events">Процедуры</a>
+    <a href="${pageContext.request.contextPath}/employee/" class="menu-employees">Сотрудники</a>
+    <a href="${pageContext.request.contextPath}/employee/manipulation" class="menu-staff">Приемная</a>
 </div>
 
 <style>

@@ -15,13 +15,13 @@ public class CaseDTO {
     private Long id;
 
     //patient
-    private Patient patient;
+    private PatientDTO patient;
 
     //patient's diagnosis
     private String diagnosis;
 
     //doctor in charge of the case
-    private Employee doctor;
+    private EmployeeDTO doctor;
 
     //start day of case
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -42,11 +42,11 @@ public class CaseDTO {
         this.id = id;
     }
 
-    public Patient getPatient() {
+    public PatientDTO getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(PatientDTO patient) {
         this.patient = patient;
     }
 
@@ -58,11 +58,11 @@ public class CaseDTO {
         this.diagnosis = diagnosis;
     }
 
-    public Employee getDoctor() {
+    public EmployeeDTO getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(Employee doctor) {
+    public void setDoctor(EmployeeDTO doctor) {
         this.doctor = doctor;
     }
 

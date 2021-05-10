@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface PrescriptionService extends AbstractService<Prescription, PrescriptionDTO>{
     List<PrescriptionDTO> getAllByPatientId(Integer PatientId);
+ //   List<PrescriptionDTO> getAllByCaseId(Long caseId);
     List<PrescriptionDTO> getAllByCaseId(Long caseId);
 }

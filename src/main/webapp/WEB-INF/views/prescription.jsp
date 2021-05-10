@@ -22,49 +22,61 @@
         <h3>Подробное назначение</h3>
 
         <form:form action="${pageContext.request.contextPath}/prescription/add" method="post"
-                   modelAttribute="days">
-
-            <label>
-                Категория:
-                <form:select path=""></form:select>
-                <select multiple name="weekday">
-                    <c:forEach items="${weekday}" var="weekday">
-                        <option value="${weekday}">${weekday}</option>
-                    </c:forEach>
-                </select>
-            </label>
-            <br><br>
+                   modelAttribute="prescription">
 
 
-            <input type="submit" value="Внести">
-        </form:form>
-
-        <form:form action="/T_school_war_exploded/cases/add/" method="POST" modelAttribute="caseN"
-                   cssClass="form">
+            <div class="form-group-create row">
+                <b class="col-xs-3">Вид манипуляции</b>
+<%--                Мужской <form:radiobutton cssClass="form-s" value="MALE" path="manipulation"/><br>--%>
+<%--                Женский <form:radiobutton cssClass="form-s" value="FEMALE" path="manipulation"/>--%>
+            </div>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Лекарство</b>
+                <form:input cssClass="form-s" path="drug"/>
+            </div>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Дозировка</b>
+                <form:input cssClass="form-s" path="dosage"/>
+            </div>
             <div class="form-group-create row">
                 <b class="col-xs-3">Начало</b>
                 <form:input cssClass="form-s" type="data" path="startDate"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">Окончание</b>
-                <form:input cssClass="form-s" type="data" path="endDate"/>
+                <b class="col-xs-3">Длительность</b>
+                <form:input cssClass="form-s" type="number" path="duration"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">Диагноз</b>
-                <form:input cssClass="form-s" path="diagnosis"/>
+                <b class="col-xs-3">Кол-во приемов в день</b>
+                <form:input cssClass="form-s" type="number" path="dailyChart"/>
             </div>
-            <div class="form-group row">
-                <b class="col-xs-3">Врач</b>
-                <form:input cssClass="form-s" type="date" path="doctor"/>
-            </div>
-            <div class="form-group-create row">
-                <b class="col-xs-3">Пациент</b>
-                <form:input cssClass="form-s" path="patient"/>
-            </div>
-            <br>
+<%--            <div class="form-group-create row">--%>
+<%--                <b class="col-xs-3">Дни недели</b>--%>
+<%--                <form:input cssClass="form-s" type="number" path=""/>--%>
+<%--            </div>--%>
+            <select name="multiSelect" size="7" multiple="multiple">
+                <c:forEach var="item" items="${param['multiSelect']}">
+                    <option ><c:if test="${item.selected}">selected</c:if>>${item.value}</option>
+                </c:forEach>
+            </select>
+
+
+
+
+
+
+<%--                <form:select path="prescr"></form:select>--%>
+<%--                <select multiple name="weekday">--%>
+<%--                    <c:forEach items="${weekday}" var="weekday">--%>
+<%--                        <option value="${weekday}">${weekday}</option>--%>
+<%--                    </c:forEach>--%>
+<%--                </select>--%>
+
+            <br><br>
+
             <button type="submit" class="btn">Сохранить изменения</button>
         </form:form>
-        <br>
+
         <br>
         <button type="submit" class="btn">Закрыть больничный</button>
         <botton class="btn" style="margin: 10px">

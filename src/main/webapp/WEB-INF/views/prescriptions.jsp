@@ -17,18 +17,15 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
   <div class="content">
+      <button class="btn">
+          <a href="${pageContext.request.contextPath}/prescription/case/${prescriptions.get(0).patientCase.id}/add" style="color: #efffe9">Новое назначение</a>
+      </button>
       <h3>Назначения в страховом случае</h3>
       <table class="table table-striped table-bordered">
         <thead>
         <tr>
           <th colspan="4">Список назначений</th>
         </tr>
-<%--        <tr>--%>
-<%--          <th colspan="4">${prescriptions.get(0).patient.secondName}</th>--%>
-<%--        </tr>--%>
-<%--        <tr>--%>
-<%--          <th colspan="4">${prescriptions.get(0).patientCase}</th>--%>
-<%--        </tr>--%>
         <tr>
           <th width="25%">Тип манипуляции</th>
           <th width="25%">Продолжительность</th>
@@ -55,7 +52,7 @@
 
 <style>
 /*Menu*/
-.vertical-menu a.menu-staff{
+.vertical-menu a.menu-patient{
   background-color: #28a347;
   color: #efffe9;
 }

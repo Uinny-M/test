@@ -24,7 +24,7 @@
     <div class="content">
         <h3>Карточка пациента</h3>
         <button class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/cases/update" style="color: #efffe9">Новый страховой случай</a>
+            <a href="${pageContext.request.contextPath}/cases/update" style="color: #efffe9">Новый страховой случай</a>
         </button>
 
      <table class="table table-striped table-bordered">
@@ -44,7 +44,7 @@
         <c:forEach items="${cases}" var="c">
             <tr>
                 <td>
-                    <a href="http://localhost:8080/T_school_war_exploded/cases/update/${c.id}">${c.patient.secondName} ${c.patient.firstName} ${c.patient.middleName}</a>
+                    <a href="${pageContext.request.contextPath}/cases/update/${c.id}">${c.patient.secondName} ${c.patient.firstName} ${c.patient.middleName}</a>
 
                 </td>
                 <td>${c.doctor.secondName}</td>

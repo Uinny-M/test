@@ -26,13 +26,13 @@
 <%--            <button type="submit" class="btn" style="margin-left: 20px;">Найти</button>--%>
 <%--        </form:form>--%>
         <button class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/event/" style="color: #efffe9">На ближайший день</a>
+            <a href="${pageContext.request.contextPath}/event/" style="color: #efffe9">На ближайший день</a>
         </button>
         <button class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/event/now" style="color: #efffe9">На ближайший час</a>
+            <a href="${pageContext.request.contextPath}/event/now" style="color: #efffe9">На ближайший час</a>
         </button>
         <button class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/patient/" style="color: #efffe9">Поиск по пациентам</a>
+            <a href="${pageContext.request.contextPath}/patient/" style="color: #efffe9">Поиск по пациентам</a>
         </button>
         <br>
 

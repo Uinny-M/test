@@ -40,22 +40,48 @@
             </div>
             <div class="form-group row">
                 <b class="col-xs-3">Врач</b>
-                <form:input cssClass="form-s"  path="doctor"/>
+                <form:input cssClass="form-s" path="doctor"/>
             </div>
             <br>
             <button type="submit" class="btn">Сохранить изменения</button>
         </form:form>
         <br>
         <br>
-        <button type="submit" class="btn">Закрыть больничный</button>
-        <botton class="btn" style="margin: 10px">
-            <a href="http://localhost:8080/T_school_war_exploded/cases/${patient}" style="color: #efffe9">Карточка
+        <button type="button" class="btn">
+            <a href="${pageContext.request.contextPath}/cases/close/${prescription.get(0).patientCase.id}" style="color: #efffe9">Закрыть
+                больничный</a></button>
+        <button class="btn" style="margin: 10px">
+            <a href="${pageContext.request.contextPath}/cases/${prescription.get(0).patient.id}" style="color: #efffe9">Карточка
                 пациента</a>
-        </botton>
-        <botton class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/prescriptiones/${patient.id}" style="color: #efffe9">Процедурный
-                лист</a>
-        </botton>
+        </button>
+                <button class="btn">
+                    <a href="${pageContext.request.contextPath}/prescription/${prescription.get(0).patient.id}"
+                       style="color: #efffe9">Лист назначений</a>
+                </button>
+        <h3>Назначения в страховом случае</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th colspan="4">Список назначений</th>
+            </tr>
+            <tr>
+                <th width="25%">Тип манипуляции</th>
+                <th width="25%">Продолжительность</th>
+                <th width="25%">Дата начала</th>
+                <th width="25%">Подробности</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${prescription}" var="p">
+                <tr>
+                    <td>${p.manipulation.title}</td>
+                    <td>${p.duration} дн.</td>
+                    <td>${p.startDate}</td>
+                    <td>${p.drug}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 </div>
 <jsp:include page="help/footer.jsp"></jsp:include>
@@ -68,6 +94,7 @@
         background-color: #28a347;
         color: #efffe9;
     }
+
     /*Content*/
     .content {
         background-color: #fff;

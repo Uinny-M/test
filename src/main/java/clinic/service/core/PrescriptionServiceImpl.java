@@ -20,10 +20,12 @@ public class PrescriptionServiceImpl extends AbstractServiceImpl<Prescription, P
     }
 
     @Transactional
+    @Override
     public List<PrescriptionDTO> getAllByPatientId(Integer patientId) {
         return mapToDTO(dao.findAllByPatientId(patientId));
     }
     @Transactional
+    @Override
     public List<PrescriptionDTO> getAllByCaseId(Long caseId) {
         return mapToDTO(dao.findAllByCaseId(caseId));
     }

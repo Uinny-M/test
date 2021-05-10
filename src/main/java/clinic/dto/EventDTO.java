@@ -14,7 +14,7 @@ public class EventDTO {
     private Long id;
 
     //patient's id
-    private Patient patient;
+    private PatientDTO patient;
 
     //date of the event
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -25,10 +25,10 @@ public class EventDTO {
     private LocalTime time;
 
     //type of the manipulation
-    private Manipulation manipulation;
+    private ManipulationDTO manipulation;
 
     //prescription
-    private Prescription prescription;
+    private PrescriptionDTO prescription;
 
     //status of event (planned/completed/canceled/failed)
     private String status;
@@ -44,11 +44,11 @@ public class EventDTO {
         this.id = id;
     }
 
-    public Patient getPatient() {
+    public PatientDTO getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(PatientDTO patient) {
         this.patient = patient;
     }
 
@@ -68,19 +68,19 @@ public class EventDTO {
         this.time = time;
     }
 
-    public Manipulation getManipulation() {
+    public ManipulationDTO getManipulation() {
         return manipulation;
     }
 
-    public void setManipulation(Manipulation manipulation) {
+    public void setManipulation(ManipulationDTO manipulation) {
         this.manipulation = manipulation;
     }
 
-    public Prescription getPrescription() {
+    public PrescriptionDTO getPrescription() {
         return prescription;
     }
 
-    public void setPrescription(Prescription prescription) {
+    public void setPrescription(PrescriptionDTO prescription) {
         this.prescription = prescription;
     }
 

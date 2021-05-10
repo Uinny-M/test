@@ -41,15 +41,39 @@ public class PrescriptionController {
     }
 
     //Add new prescription
-    @PostMapping(value = "/add")
-    public RedirectView addPrescription(@ModelAttribute PrescriptionDTO prescriptionDTO) {
+    @PostMapping(value = "/case/{caseId}/add")
+    public RedirectView addPrescription(@ModelAttribute PrescriptionDTO prescriptionDTO,
+                                        @PathVariable Long caseId) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("days", new HashSet<String>());
-        modelAndView.addObject("times", new HashSet<String>());
-        modelAndView.addObject("weekday", Weekday.values());
-        modelAndView.addObject("time", Times.values());
+        modelAndView.addObject("prescription", new PrescriptionDTO());
+        modelAndView.addObject("caseId", caseId);
+
+//        modelAndView.addObject("days", new HashSet<String>());
+//        modelAndView.addObject("times", new HashSet<String>());
+//        modelAndView.addObject("weekday", Weekday.values());
+//        modelAndView.addObject("time", Times.values());
         modelAndView.setViewName("prescription");
         prescriptionService.create(prescriptionDTO);
+//        prescriptionService.create(prescriptionDTO, caseId);
         return new RedirectView("/T_school_war_exploded/patient/");
+    }
+
+    //Return Patient by ID
+    @GetMapping(value = "/case/{caseId}/add/{prescriptionId}")
+    public ModelAndView getPrescription(@PathVariable("caseId") Long caseId,
+                                        @PathVariable("prescriptionId") Long prescriptionId) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("prescription", prescriptionService.getOneById(prescriptionId));
+        // modelAndView.addObject("cases", caseService.getAll());
+        modelAndView.setViewName("prescription");
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/case/{caseId}/add")
+    public ModelAndView getPrescription(@PathVariable("caseId") Long caseId) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("prescription", new PrescriptionDTO());
+        modelAndView.setViewName("prescription");
+        return modelAndView;
     }
 }

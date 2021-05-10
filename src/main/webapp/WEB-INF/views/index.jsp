@@ -21,18 +21,18 @@
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
         <div class="navi-block ">
-            <a href="http://localhost:8080/T_school_war_exploded/patient/" class="block">
+            <a href="${pageContext.request.contextPath}/patient/" class="block">
                 <h2>Пациенты</h2>
             </a>
-            <a href="http://localhost:8080/T_school_war_exploded/events/" class="block">
+            <a href="${pageContext.request.contextPath}/event/" class="block">
                 <h2>Процедуры</h2>
             </a>
         </div>
         <div class="navi-block">
-            <a href="http://localhost:8080/T_school_war_exploded/employee/" class="block">
+            <a href="${pageContext.request.contextPath}/employee/" class="block">
                 <h2>Сотрудники</h2>
             </a>
-            <a href="http://localhost:8080/T_school_war_exploded/employee/manipulation" class="block">
+            <a href="${pageContext.request.contextPath}/employee/manipulation" class="block">
                 <h2>Приемная</h2>
             </a>
         </div>
