@@ -39,19 +39,19 @@ public class CaseController {
     }
 
     //Add new case
-    @PostMapping(value = "/{patientId}/close")
-    public ModelAndView closeCase(@PathVariable Long caseId) {
-        caseService.closeCase(caseId);
-        ModelAndView modelAndView = new ModelAndView(new RedirectView());
-        return modelAndView;
-    }
+//    @PostMapping(value = "/{patientId}/close")
+//    public ModelAndView closeCase(@PathVariable Long caseId) {
+//        caseService.closeCase(caseId);
+//        ModelAndView modelAndView = new ModelAndView(new RedirectView());
+//        return modelAndView;
+//    }
 
-    //Add new case
-    @PostMapping(value = "/add")
-    public ModelAndView addCase(@ModelAttribute CaseDTO caseDTO) {
-        caseService.createOrUpdate(caseDTO);
-        ModelAndView modelAndView = new ModelAndView(new RedirectView());
-        return modelAndView;
-    }
+//    //Add new case
+//    @PostMapping(value = "/add")
+//    public ModelAndView addCase(@ModelAttribute CaseDTO caseDTO) {
+//        caseService.createOrUpdate(caseDTO);
+//        ModelAndView modelAndView = new ModelAndView(new RedirectView());
+//        return modelAndView;
+//    }
 
 }

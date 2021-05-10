@@ -15,7 +15,7 @@ public class EventDaoImpl extends AbstractHibernateDao<Event> implements EventDa
         super(Event.class);
     }
 
-    @Transactional
+    @Override
     public List<Event> findAllByDate(LocalDate date) {
         return em.createQuery(
                 "SELECT e FROM Event e WHERE e.date = :date AND e.status = 1 ")
@@ -23,7 +23,7 @@ public class EventDaoImpl extends AbstractHibernateDao<Event> implements EventDa
                 .getResultList();
     }
 
-    @Transactional
+    @Override
     public List<Event> findAllByPatientId(Integer patientId) {
         return em.createQuery(
                 "SELECT e FROM Event e WHERE e.patient.id = :patientId AND e.status = 1" +
@@ -32,7 +32,7 @@ public class EventDaoImpl extends AbstractHibernateDao<Event> implements EventDa
                 .getResultList();
     }
 
-    @Transactional
+    @Override
     public List<Event> findAllByDateTime(LocalDate date, LocalTime time) {
         return em.createQuery(
                 "SELECT e FROM Event e WHERE e.date = :date AND e.time < :time AND e.status = 1 " +
@@ -42,8 +42,11 @@ public class EventDaoImpl extends AbstractHibernateDao<Event> implements EventDa
                 .getResultList();
     }
 
-    @Transactional
+    @Override
     public List<Event> findAllByCaseId(Long caseId) {
-        return null; //todo
+        return em.createQuery(
+                "SELECT e FROM Event e WHERE e.prescription.patientCase = :caseId ORDER BY time")
+                .setParameter("caseId", caseId)
+                .getResultList();
     }
 }

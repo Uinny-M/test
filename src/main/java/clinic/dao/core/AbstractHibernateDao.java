@@ -1,13 +1,13 @@
 package clinic.dao.core;
 
 
-import org.springframework.transaction.annotation.Transactional;
+import clinic.dao.api.AbstractDao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public abstract class AbstractHibernateDao<T>  {
+public abstract class AbstractHibernateDao<T> implements AbstractDao<T> {
     private final Class<T> clazz;
 
     @PersistenceContext
@@ -17,36 +17,37 @@ public abstract class AbstractHibernateDao<T>  {
         this.clazz = clazzToSet;
     }
 
-    @Transactional
+
+    @Override
     public T findById(Number id) {
         return em.find(clazz, id);
     }
 
-    @Transactional
+    @Override
     public List<T> findAll() {
         return em.createQuery("from " + clazz.getName(), clazz)
                 .getResultList();
     }
 
-    @Transactional
+    @Override
     public T save(T entity) {
         em.persist(entity);
         em.flush();
         return entity;
     }
 
-    @Transactional
+    @Override
     public T update(T entity) {
         return em.merge(entity);
     }
 
-    @Transactional
+    @Override
     public void delete(T entity) {
         //todo softDelete or remove method
         em.remove(em.contains(entity) ? entity : em.merge(entity));
     }
 
-    @Transactional
+    @Override
     public void deleteById(Number entityId) {
         T entity = findById(entityId);
         delete(entity);

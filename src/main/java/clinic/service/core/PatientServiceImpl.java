@@ -6,6 +6,7 @@ import clinic.entities.Patient;
 import clinic.mappers.PatientMapper;
 import clinic.service.api.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,17 +21,17 @@ public class PatientServiceImpl extends AbstractServiceImpl<Patient, PatientDTO,
         super(dao, mapper);
     }
 
-    @Override
     @Transactional
     public List<PatientDTO> getPatientsByName(String name) {
         if (name == null||name.isEmpty()) return mapToDTO(dao.findAll());
         else return mapToDTO(dao.findAllByName(name));
     }
 
-    @Override
     @Transactional
     public PatientDTO createOrUpdatePatient(PatientDTO patientDTO) {
         if (getAll().stream().anyMatch(p -> p.getInsurance().equals(patientDTO.getInsurance()))) {
+        //    Patient patient = dao.findAllByInsurance(patientDTO.getInsurance());
+           // dao.update(dao.findAllByInsurance(patientDTO.getInsurance()));
             dao.update(mapToEntity(patientDTO));
         } else {
             dao.save(mapToEntity(patientDTO));

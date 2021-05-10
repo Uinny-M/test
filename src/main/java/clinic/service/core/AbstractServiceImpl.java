@@ -50,6 +50,7 @@ public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao, Mappe
     }
 
     @Transactional
+    @Override
     public DTO createOrUpdate(DTO dto) {
         if (getAll().contains(dto)) {
             update(dto);
@@ -65,6 +66,7 @@ public abstract class AbstractServiceImpl<T, DTO, Dao extends AbstractDao, Mappe
     }
 
     @Override
+    @Transactional
     public void deleteById(Number entityId) {
         dao.deleteById(entityId);
     }

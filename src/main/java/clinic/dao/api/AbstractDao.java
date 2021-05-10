@@ -3,7 +3,7 @@ package clinic.dao.api;
 import java.util.List;
 
 public interface AbstractDao <T>{
-    T findById(final Number id);
+    T findById(Number id);
 
     List<T> findAll();
 

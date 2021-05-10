@@ -3,7 +3,6 @@ package clinic.dao.core;
 import clinic.dao.api.PrescriptionDao;
 import clinic.entities.Prescription;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +12,7 @@ public class PrescriptionDaoImpl extends AbstractHibernateDao<Prescription> impl
         super(Prescription.class);
     }
 
+    @Override
     public List<Prescription> findAllByPatientId(Integer patientId) {
         return em.createQuery(
                 "SELECT p FROM Prescription p WHERE p.patient.id = :patientId")
@@ -20,6 +20,7 @@ public class PrescriptionDaoImpl extends AbstractHibernateDao<Prescription> impl
                 .getResultList();
     }
 
+    @Override
     public List<Prescription> findAllByCaseId(Long caseId) {
         return em.createQuery(
                 "SELECT p FROM Prescription p WHERE p.patientCase.id = :caseId")

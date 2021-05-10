@@ -8,7 +8,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta/>
   <link href="css/t.css" rel="stylesheet" type="text/css">
-  <title>Приемная</title>
+  <title>Назначения</title>
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -17,21 +17,31 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
   <div class="content">
-      <table class="table table-striped table-bordered table-hover">
+      <table class="table table-striped table-bordered">
         <thead>
         <tr>
-          <th colspan="3">Список услуг</th>
+          <th colspan="4">Список назначений</th>
         </tr>
         <tr>
-          <th width="50%">Название</th>
-          <th width="50%">Тип манипуляции</th>
+          <th colspan="4">${prescriptions.get(0).patient.secondName}</th>
+        </tr>
+        <tr>
+          <th colspan="4">${prescriptions.get(0).patientCase}</th>
+        </tr>
+        <tr>
+          <th width="25%">Тип манипуляции</th>
+          <th width="25%">Продолжительность</th>
+          <th width="25%">Дата начала</th>
+          <th width="25%">Подробности</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${manipulation}" var="m">
+        <c:forEach items="${prescriptions}" var="p">
           <tr>
-            <td>${m.title}</td>
-            <td>${m.type}</td>
+            <td>${p.manipulation.title}</td>
+            <td>${p.duration} дн.</td>
+            <td>${p.startDate}</td>
+            <td>${p.drug}</td>
           </tr>
         </c:forEach>
         </tbody>

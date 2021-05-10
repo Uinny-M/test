@@ -2,6 +2,7 @@ package clinic.mappers;
 
 import clinic.dto.EventDTO;
 import clinic.entities.Event;
+import clinic.entities.enums.EventStatus;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-05-07T08:20:27+0300",
+    date = "2021-05-10T13:40:24+0300",
     comments = "version: 1.4.1.Final, compiler: javac, environment: Java 13.0.2 (AdoptOpenJDK)"
 )
 @Component
@@ -51,6 +52,17 @@ public class EventMapperImpl implements EventMapper {
 
         EventDTO eventDTO = new EventDTO();
 
+        eventDTO.setId( entity.getId() );
+        eventDTO.setPatient( entity.getPatient() );
+        eventDTO.setDate( entity.getDate() );
+        eventDTO.setTime( entity.getTime() );
+        eventDTO.setManipulation( entity.getManipulation() );
+        eventDTO.setPrescription( entity.getPrescription() );
+        if ( entity.getStatus() != null ) {
+            eventDTO.setStatus( entity.getStatus().name() );
+        }
+        eventDTO.setComment( entity.getComment() );
+
         return eventDTO;
     }
 
@@ -61,6 +73,17 @@ public class EventMapperImpl implements EventMapper {
         }
 
         Event event = new Event();
+
+        event.setId( dto.getId() );
+        event.setPatient( dto.getPatient() );
+        event.setDate( dto.getDate() );
+        event.setTime( dto.getTime() );
+        event.setManipulation( dto.getManipulation() );
+        event.setPrescription( dto.getPrescription() );
+        if ( dto.getStatus() != null ) {
+            event.setStatus( Enum.valueOf( EventStatus.class, dto.getStatus() ) );
+        }
+        event.setComment( dto.getComment() );
 
         return event;
     }

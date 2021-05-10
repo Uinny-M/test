@@ -32,7 +32,7 @@ public class EmployeeController {
     public ModelAndView getAllManipulation() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("manipulation", manipulationService.getAll());
-        modelAndView.setViewName("reception");
+        modelAndView.setViewName("manipulations");
         return modelAndView;
     }
 }

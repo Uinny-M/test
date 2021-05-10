@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EventServiceImpl extends AbstractServiceImpl<Event, EventDTO, EventDao, EventMapper>
@@ -42,5 +43,12 @@ public class EventServiceImpl extends AbstractServiceImpl<Event, EventDTO, Event
     @Transactional
     public List<EventDTO> getAllByCaseId(Long caseId) {
         return mapToDTO(dao.findAllByCaseId(caseId));
+    }
+
+    @Transactional
+    public List<EventDTO> getEventsPlannedByCaseId(Long caseId) {
+        return getAllByCaseId(caseId).stream()
+                .filter(eventDTO -> eventDTO.getStatus().equals("planned"))
+                .collect(Collectors.toList());
     }
 }

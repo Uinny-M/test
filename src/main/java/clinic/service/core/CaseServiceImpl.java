@@ -23,17 +23,17 @@ public class CaseServiceImpl extends AbstractServiceImpl<Case, CaseDTO, CaseDao,
         this.eventService = eventService;
     }
 
-    @Override
+    @Transactional
     public List<CaseDTO> getCasesByPatientId(Integer patientId) {
         return mapToDTO(dao.findCasesByPatientId(patientId));
     }
 
-    @Override
+    @Transactional
     public List<CaseDTO> getAllOpenCases() {
         return mapToDTO(dao.findAll().stream().filter(Case::isOpenCase).collect(Collectors.toList()));
     }
 
-    @Override
+    @Transactional
     public List<Case> getCases(Integer i) {
         return dao.findAll().stream().filter(Case::isOpenCase).collect(Collectors.toList());
     }

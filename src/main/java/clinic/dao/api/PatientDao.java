@@ -9,4 +9,5 @@ import java.util.List;
 public interface PatientDao extends AbstractDao<Patient> {
 
     List<Patient> findAllByName(String name);
+    Patient findAllByInsurance(String insurance);
 }

@@ -12,6 +12,7 @@ import java.util.List;
 public class CaseDaoImpl extends AbstractHibernateDao<Case> implements CaseDao {
 public CaseDaoImpl(){super(Case.class);}
     @Transactional
+    @Override
     public List<Case> findCasesByPatientId(Integer patientId)
     {
         return em.createQuery("SELECT c FROM Case c WHERE c.patient.id =:id")
