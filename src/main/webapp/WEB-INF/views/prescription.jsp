@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta/>
     <link href="css/t.css" rel="stylesheet" type="text/css">
-    <title>CLINIC</title>
+    <title>Назначение</title>
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -19,6 +19,7 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
+        <h3>Подробное назначение</h3>
 
         <form:form action="${pageContext.request.contextPath}/prescription/add" method="post"
                    modelAttribute="days">
@@ -38,7 +39,7 @@
             <input type="submit" value="Внести">
         </form:form>
 
-        <form:form action="/T_school_war_exploded/cases/add/" method="POST" modelAttribute="caseNew"
+        <form:form action="/T_school_war_exploded/cases/add/" method="POST" modelAttribute="caseN"
                    cssClass="form">
             <div class="form-group-create row">
                 <b class="col-xs-3">Начало</b>

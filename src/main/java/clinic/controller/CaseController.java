@@ -8,50 +8,62 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.time.LocalDate;
+
 @Controller
 @RequestMapping(value = "/cases")
 public class CaseController {
     private final CaseService caseService;
-    private final PrescriptionService prescriptionService;
 
-    public CaseController(CaseService caseService, PrescriptionService prescriptionService) {
+    public CaseController(CaseService caseService) {
         this.caseService = caseService;
-        this.prescriptionService = prescriptionService;
     }
 
     //Return all cases by PatientId
     @GetMapping(value = "/{patientId}")
     public ModelAndView getAllCases(@PathVariable Integer patientId) {
         ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("cases", caseService.getAllOpenCases());
-        modelAndView.addObject("cases", caseService.getAll());
+        modelAndView.addObject("cases", caseService.getCasesByPatientId(patientId));
         modelAndView.setViewName("cases");
+        return modelAndView;
+    }
+    //Return Patient by ID
+    @GetMapping(value = "/update/{caseId}")
+    public ModelAndView getCaseById(@PathVariable("caseId") Long caseId) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("case", caseService.getOneById(caseId));
+        // modelAndView.addObject("cases", caseService.getAll());
+        modelAndView.setViewName("patientCase");
         return modelAndView;
     }
 
     //Return Case by ID
-    @GetMapping(value = "/add")
+    @GetMapping(value = "/update")
     public ModelAndView getCaseById() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("caseNew", new CaseDTO());
-        modelAndView.setViewName("case");
+        CaseDTO caseDTO = new CaseDTO();
+        caseDTO.setStartDate(LocalDate.now());
+        modelAndView.addObject("case", caseDTO);
+        modelAndView.setViewName("patientCase");
         return modelAndView;
     }
 
-    //Add new case
-//    @PostMapping(value = "/{patientId}/close")
-//    public ModelAndView closeCase(@PathVariable Long caseId) {
-//        caseService.closeCase(caseId);
+        //Add new case
+    @PostMapping(value = "/update")
+    public RedirectView addPatientCase(@ModelAttribute CaseDTO caseDTO) {
+        caseService.createOrUpdate(caseDTO);
 //        ModelAndView modelAndView = new ModelAndView(new RedirectView());
-//        return modelAndView;
-//    }
+        return new RedirectView("/T_school_war_exploded/cases/");
+    }
 
-//    //Add new case
-//    @PostMapping(value = "/add")
-//    public ModelAndView addCase(@ModelAttribute CaseDTO caseDTO) {
-//        caseService.createOrUpdate(caseDTO);
-//        ModelAndView modelAndView = new ModelAndView(new RedirectView());
-//        return modelAndView;
-//    }
+   // Add new case
+    @PostMapping(value = "/update/{patientId}/close")
+    public ModelAndView closeCase(@PathVariable Long caseId) {
+        caseService.closeCase(caseId);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView());
+        return modelAndView;
+    }
+
+
 
 }

@@ -19,27 +19,28 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
-        <form:form action="/T_school_war_exploded/cases/add/" method="POST" modelAttribute="caseNew"
+        <h3>Подробности страхового случая</h3>
+        <form:form action="/T_school_war_exploded/cases/update/" method="POST" modelAttribute="case"
                    cssClass="form">
             <div class="form-group-create row">
-                <b class="col-xs-3">Начало</b>
-                <form:input cssClass="form-s" type="data" path="startDate"/>
-            </div>
-            <div class="form-group-create row">
-                <b class="col-xs-3">Окончание</b>
-                <form:input cssClass="form-s" type="data" path="endDate"/>
+                <b class="col-xs-3">Пациент</b>
+                <form:input cssClass="form-s" path="patient"/>
             </div>
             <div class="form-group-create row">
                 <b class="col-xs-3">Диагноз</b>
                 <form:input cssClass="form-s" path="diagnosis"/>
             </div>
-            <div class="form-group row">
-                <b class="col-xs-3">Врач</b>
-                <form:input cssClass="form-s" type="date" path="doctor"/>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Начало</b>
+                <form:input cssClass="form-s" readonly="true" type="data" path="startDate"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">Пациент</b>
-                <form:input cssClass="form-s" path="patient"/>
+                <b class="col-xs-3">Окончание</b>
+                <form:input cssClass="form-s" readonly="true" type="data" path="endDate"/>
+            </div>
+            <div class="form-group row">
+                <b class="col-xs-3">Врач</b>
+                <form:input cssClass="form-s"  path="doctor"/>
             </div>
             <br>
             <button type="submit" class="btn">Сохранить изменения</button>
@@ -48,7 +49,7 @@
         <br>
         <button type="submit" class="btn">Закрыть больничный</button>
         <botton class="btn" style="margin: 10px">
-            <a href="http://localhost:8080/T_school_war_exploded/cases/${patient.id}" style="color: #efffe9">Карточка
+            <a href="http://localhost:8080/T_school_war_exploded/cases/${patient}" style="color: #efffe9">Карточка
                 пациента</a>
         </botton>
         <botton class="btn">

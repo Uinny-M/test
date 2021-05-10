@@ -19,6 +19,7 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
+        <h3>Данные пациента</h3>
         <form:form action="/T_school_war_exploded/patient/add" method="post" modelAttribute="patient"
                    cssClass="form">
             <div class="form-group-create row">
@@ -54,7 +55,7 @@
             <a href="http://localhost:8080/T_school_war_exploded/cases/${patient.id}" style="color: #efffe9">Карточка пациента</a>
         </botton>
         <botton class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/cases/prescriptions/${patient.id}" style="color: #efffe9">Процедурный лист</a>
+            <a href="http://localhost:8080/T_school_war_exploded/event/${patient.id}" style="color: #efffe9">Процедурный лист</a>
         </botton>
 
 

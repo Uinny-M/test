@@ -22,6 +22,11 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
+        <h3>Карточка пациента</h3>
+        <button class="btn">
+            <a href="http://localhost:8080/T_school_war_exploded/cases/update" style="color: #efffe9">Новый страховой случай</a>
+        </button>
+
      <table class="table table-striped table-bordered">
         <thead>
         <tr>
@@ -38,7 +43,10 @@
         <tbody>
         <c:forEach items="${cases}" var="c">
             <tr>
-                <td>${c.patient.secondName} ${c.patient.firstName} ${c.patient.middleName}</td>
+                <td>
+                    <a href="http://localhost:8080/T_school_war_exploded/cases/update/${c.id}">${c.patient.secondName} ${c.patient.firstName} ${c.patient.middleName}</a>
+
+                </td>
                 <td>${c.doctor.secondName}</td>
                 <td>${c.diagnosis}</td>
                 <td>${c.startDate}</td>
@@ -54,6 +62,11 @@
 </html>
 
 <style>
+    /*Menu*/
+    .vertical-menu a.menu-patient {
+        background-color: #28a347;
+        color: #efffe9;
+    }
     /*Content*/
     .content {
         background-color: #fff;

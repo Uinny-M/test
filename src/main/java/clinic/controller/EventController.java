@@ -35,7 +35,7 @@ public class EventController {
     public ModelAndView getEventsForToday() {
         ModelAndView modelAndView = new ModelAndView();
        // modelAndView.addObject("events", eventService.getAllEventsToday());
-        modelAndView.addObject("events", eventService.getAll());
+        modelAndView.addObject("events", eventService.getAllEventsToday());
         modelAndView.setViewName("events");
         return modelAndView;
     }
@@ -45,7 +45,7 @@ public class EventController {
     public ModelAndView getEventsForOur() {
         ModelAndView modelAndView = new ModelAndView();
         //modelAndView.addObject("events", eventService.getAllEventsNow());
-        modelAndView.addObject("events", eventService.getAll());
+        modelAndView.addObject("events", eventService.getAllEventsNow());
         modelAndView.setViewName("events");
         return modelAndView;
     }

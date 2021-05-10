@@ -33,12 +33,14 @@ public class EventDaoImpl extends AbstractHibernateDao<Event> implements EventDa
     }
 
     @Override
-    public List<Event> findAllByDateTime(LocalDate date, LocalTime time) {
+    public List<Event> findAllByDateTime(LocalDate date, LocalTime starttime, LocalTime endtime) {
         return em.createQuery(
-                "SELECT e FROM Event e WHERE e.date = :date AND e.time < :time AND e.status = 1 " +
-                        " ORDER BY time")
+                "SELECT e FROM Event e WHERE e.date = :date " +
+                        " AND e.time < :endtime AND e.time > :starttime AND e.status = 1 " +
+                        " ORDER BY time ")
                 .setParameter("date", date)
-                .setParameter("time", time)
+                .setParameter("starttime", starttime)
+                .setParameter("endtime", endtime)
                 .getResultList();
     }
 

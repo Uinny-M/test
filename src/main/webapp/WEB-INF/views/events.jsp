@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta/>
     <link href="css/t.css" rel="stylesheet" type="text/css">
-    <title>Пациенты</title>
+    <title>Процедуры</title>
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -20,11 +20,17 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
-        <form:form action="/T_school_war_exploded/event/" cssClass="form" method="get">
-            <input type="date" class="form-s" name="date" style="float: left" value="${date}"/>
-            <button type="submit" class="btn" style="margin-left: 20px;">Найти</button>
-        </form:form>
-
+        <h3>Список процедур</h3>
+<%--        <form:form action="/T_school_war_exploded/event/" cssClass="form" method="get">--%>
+<%--            <input type="date" class="form-s" name="date" style="float: left" value="${date}"/>--%>
+<%--            <button type="submit" class="btn" style="margin-left: 20px;">Найти</button>--%>
+<%--        </form:form>--%>
+        <button class="btn">
+            <a href="http://localhost:8080/T_school_war_exploded/event/" style="color: #efffe9">На ближайший день</a>
+        </button>
+        <button class="btn">
+            <a href="http://localhost:8080/T_school_war_exploded/event/now" style="color: #efffe9">На ближайший час</a>
+        </button>
         <button class="btn">
             <a href="http://localhost:8080/T_school_war_exploded/patient/" style="color: #efffe9">Поиск по пациентам</a>
         </button>

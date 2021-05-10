@@ -20,6 +20,7 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
+        <h3>Список пациентов</h3>
         <form:form action="/T_school_war_exploded/patient/" cssClass="form" method="get">
             <input type="text" class="form-s" name="name" style="float: left" placeholder="Фамилия" value="${search}"/>
             <button type="submit" class="btn" style="margin-left: 20px;">Найти</button>

@@ -37,7 +37,8 @@ public class EventServiceImpl extends AbstractServiceImpl<Event, EventDTO, Event
     public List<EventDTO> getAllEventsNow() {
         LocalDate date = LocalDate.now();
         LocalTime endTime = LocalTime.now().plusHours(1);
-        return mapToDTO(dao.findAllByDateTime(date, endTime));
+        LocalTime startTime = LocalTime.now().minusHours(1);
+        return mapToDTO(dao.findAllByDateTime(date, startTime, endTime));
     }
 
     @Transactional

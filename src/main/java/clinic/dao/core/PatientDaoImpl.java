@@ -22,7 +22,7 @@ public class PatientDaoImpl extends AbstractHibernateDao<Patient> implements Pat
     }
 
     @Override
-    public Patient findAllByInsurance(String insurance) {
+    public Patient findPatientByInsurance(String insurance) {
         return (Patient) em.createQuery(
                 "SELECT p FROM Patient p WHERE p.insurance = :insurance")
                 .setParameter("insurance", insurance)
