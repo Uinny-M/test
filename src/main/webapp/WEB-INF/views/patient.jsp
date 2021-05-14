@@ -99,21 +99,15 @@
         text-transform: capitalize;
         transition: all 0.5s ease 0s;
     }
-    .section-hidding {
-        margin: 10px;
-        margin-top: 100px;
-    }
     .form {
         width: 100%;
         height: auto;
         display: block;
         margin: 10px;
+        text-transform: capitalize;
     }
-    .form-hidding {
-        margin-top: 30px;
-        border-bottom: 1px solid #28a347;
-        border-top: 1px solid #28a347;
-    }
+
+
     .form-group-search {
         float: left;
         margin-left: 10px;
