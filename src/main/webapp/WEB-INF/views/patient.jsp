@@ -4,6 +4,7 @@
 <%@ include file="help/header.jsp" %>
 <%@ include file="help/footer.jsp" %>
 <%@include file="help/menu.jsp" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
 
 <html>
 <head>
