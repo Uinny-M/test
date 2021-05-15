@@ -27,10 +27,11 @@
             <input type="text" class="form-s" name="name" style="float: left" placeholder="Фамилия" value="${search}"/>
             <button type="submit" class="btn" style="margin-left: 20px;">Найти</button>
         </form:form>
-
+        <sec:authorize access="hasAnyRole('ROLE_DOCTOR', 'ROLE_DOCTOR')">
         <button class="btn">
             <a href="http://localhost:8080/T_school_war_exploded/patient/add" style="color: #efffe9">Новый пациент</a>
         </button>
+        </sec:authorize>
         <br>
 
         <table class="table table-striped table-bordered table-hover" style="margin-top: 20px;">

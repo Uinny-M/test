@@ -4,7 +4,6 @@
 <%@ include file="help/header.jsp" %>
 <%@ include file="help/footer.jsp" %>
 <%@include file="help/menu.jsp" %>
-<%@ page language="java" pageEncoding="UTF-8"%>
 
 <html>
 <head>
@@ -49,7 +48,9 @@
                 <form:input cssClass="form-s" path="insurance"/>
             </div>
             <br>
-            <button type="submit" class="btn">Сохранить изменения</button>
+            <sec:authorize access="hasRole('ROLE_DOCTOR')">
+                <button type="submit" class="btn">Сохранить изменения</button>
+            </sec:authorize>
         </form:form>
         <br>
         <botton class="btn" style="margin: 10px">
