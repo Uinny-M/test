@@ -5,6 +5,7 @@
 <%@ include file="help/footer.jsp" %>
 <%@include file="help/menu.jsp" %>
 
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">

@@ -2,7 +2,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="help/header.jsp" %>
 <%@ include file="help/footer.jsp" %>
 <%@include file="help/menu.jsp" %>
