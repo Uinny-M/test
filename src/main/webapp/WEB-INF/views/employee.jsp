@@ -1,18 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page language="java" pageEncoding="UTF-8"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="help/header.jsp" %>
 <%@ include file="help/footer.jsp" %>
 <%@include file="help/menu.jsp" %>
 
+
 <html>
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta/>
     <link href="css/t.css" rel="stylesheet" type="text/css">
-    <title>Пациенты</title>
+    <title>Сотрудники</title>
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -21,51 +20,54 @@
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
-        <h3>Список пациентов</h3>
-        <form:form action="/T_school_war_exploded/patient/" cssClass="form" method="get">
-            <input type="text" class="form-s" name="name" style="float: left" placeholder="Фамилия" value="${search}"/>
-            <button type="submit" class="btn" style="margin-left: 20px;">Найти</button>
+        <h3>Данные сотрудника</h3>
+        <form:form action="/T_school_war_exploded/employee/add" method="post" modelAttribute="employee"
+                   cssClass="form">
+            <div class="form-group-create row">
+                <b class="col-xs-3">Фамилия</b>
+                <form:input cssClass="form-s" path="secondName"/>
+            </div>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Имя</b>
+                <form:input cssClass="form-s" path="firstName"/>
+            </div>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Отчество</b>
+                <form:input cssClass="form-s" path="middleName"/>
+            </div>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Должность</b>
+                <form:input cssClass="form-s" path="position"/>
+            </div>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Логин</b>
+                <form:input cssClass="form-s" path="login"/>
+            </div>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Пароль</b>
+                <form:password cssClass="form-s" path="password"/>
+            </div>
+            <div class="form-group-create row">
+                <b class="col-xs-3">Уровень доступа</b>
+                Администратор <form:radiobutton cssClass="form-s" value="ROLE_ADMIN" path="role"/><br>
+                Врач <form:radiobutton cssClass="form-s" value="ROLE_DOCTOR" path="role"/>
+                Мл.медперсонал <form:radiobutton cssClass="form-s" value="ROLE_NURSE" path="role"/>
+            </div>
+            <br>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                <button type="submit" class="btn">Сохранить изменения</button>
+            </sec:authorize>
         </form:form>
-        <sec:authorize access="hasAnyRole('ROLE_DOCTOR', 'ROLE_DOCTOR')">
-        <button class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/patient/add" style="color: #efffe9">Новый пациент</a>
-        </button>
-        </sec:authorize>
         <br>
-
-        <table class="table table-striped table-bordered table-hover" style="margin-top: 20px;">
-            <thead>
-            <tr>
-                <th colspan="3">Список пациентов</th>
-            </tr>
-            <tr>
-                <th width="50%">ФИО</th>
-                <th width="25%">Дата рождения</th>
-                <th width="25%">Номер страховки</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${patients}" var="p">
-                <tr>
-                    <td>
-                        <a href="http://localhost:8080/T_school_war_exploded/patient/${p.id}">${p.secondName} ${p.firstName} ${p.middleName}</a>
-                    </td>
-                    <td>${p.birthdate}</td>
-                    <td>${p.insurance}</td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-        <br>
-    </div><!--/.content-->
-</div><!-- /.container -->
+    </div>
+</div>
 <jsp:include page="help/footer.jsp"></jsp:include>
 </body>
 </html>
 
 <style>
     /*Menu*/
-    .vertical-menu a.menu-patient {
+    .vertical-menu a.menu-employees{
         background-color: #28a347;
         color: #efffe9;
     }
@@ -102,7 +104,10 @@
         height: auto;
         display: block;
         margin: 10px;
+        text-transform: capitalize;
     }
+
+
     .form-group-search {
         float: left;
         margin-left: 10px;
