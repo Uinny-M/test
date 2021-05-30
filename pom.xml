@@ -226,6 +226,17 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <!--===========For 2nd app==============-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>5.3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-spring</artifactId>
+            <version>5.13.3</version>
+        </dependency>
     </dependencies>
 
     <build>

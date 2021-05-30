@@ -1,5 +1,6 @@
 package clinic.service.api;
 
+import clinic.connectConfig.TrackResponse;
 import clinic.dto.EventDTO;
 import clinic.entities.Event;
 
@@ -75,4 +76,11 @@ public interface EventService extends AbstractService<Event, EventDTO> {
      * @param comment reason for cancellation
      */
     void eventCancel(Long eventId, String comment);
+
+    /**
+     * Update event for 2nd app
+     *
+     * @param trackResponse
+     */
+    void eventUpdate(TrackResponse trackResponse);
 }

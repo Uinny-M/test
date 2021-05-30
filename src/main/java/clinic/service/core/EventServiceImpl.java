@@ -1,5 +1,6 @@
 package clinic.service.core;
 
+import clinic.connectConfig.TrackResponse;
 import clinic.dao.api.EventDao;
 import clinic.dto.EventDTO;
 import clinic.entities.Event;
@@ -93,5 +94,10 @@ public class EventServiceImpl extends AbstractServiceImpl<Event, EventDTO, Event
                 dao.update(mapToEntity(eventDTO));
             }
         });
+    }
+
+
+    public void eventUpdate(TrackResponse trackResponse) {
+        //todo
     }
 }
