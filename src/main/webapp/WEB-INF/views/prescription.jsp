@@ -63,7 +63,7 @@
         </form:form>
         <br>
         <botton class="btn">
-            <a href="http://localhost:8080/T_school_war_exploded/cases/${patientId}/update/${caseId}"
+            <a href="${pageContext.request.contextPath}/cases/${patientId}/update/${caseId}"
                style="color: #efffe9">Back</a>
         </botton>
     </div>

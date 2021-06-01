@@ -20,7 +20,7 @@
     <jsp:include page="help/menu.jsp"></jsp:include>
     <div class="content">
         <h3>Case report</h3>
-        <form:form action="/T_school_war_exploded/cases/${patientId}/update/${caseId}" method="POST"
+        <form:form action="${pageContext.request.contextPath}/cases/${patientId}/update/${caseId}" method="POST"
                    modelAttribute="case"
                    cssClass="form">
             <div class="form-group-create row">

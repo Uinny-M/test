@@ -35,7 +35,7 @@
             <sec:authorize access="hasRole('ROLE_NURSE')">
                 <img src="${pageContext.request.contextPath}/assets/nurse.jpg" width="120" height="88"  alt="nurse.jpg">
             </sec:authorize>
-            <button type="button" class="btn" style="margin-top: 1px">
+            <button type="button" class="btn" style="margin-top: 1px; color: #efffe9">
 
                     <sec:authorize access="!isAuthenticated()">
                         <a href="${pageContext.request.contextPath}/login" class="menu-index">
