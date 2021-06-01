@@ -12,6 +12,7 @@ clinic\entities\Prescription.class
 clinic\exception\BusinessException.class
 clinic\service\api\CaseService.class
 clinic\mappers\PrescriptionMapperImpl.class
+clinic\mq\Consumer.class
 clinic\service\api\EventService.class
 clinic\controller\PatientController.class
 clinic\config\WebConfig.class
@@ -25,13 +26,11 @@ clinic\mappers\PatientMapperImpl.class
 clinic\service\core\PrescriptionServiceImpl.class
 clinic\mappers\CaseMapper.class
 clinic\dto\EventDTO.class
-clinic\connectConfig\MessagingConfig.class
 clinic\entities\enums\EventStatus.class
 clinic\entities\Patient.class
 clinic\config\SwaggerConfig.class
 clinic\service\core\CaseServiceImpl.class
 clinic\dao\api\ManipulationDao.class
-clinic\connectConfig\MessageReceiver.class
 clinic\exception\ExceptionControllerAdvice.class
 clinic\dto\ManipulationDTO.class
 clinic\dao\api\PrescriptionDao.class
@@ -46,7 +45,6 @@ clinic\service\api\AbstractService.class
 clinic\service\api\PatientService.class
 clinic\mappers\ManipulationMapperImpl.class
 clinic\mappers\PatientMapper.class
-clinic\connectConfig\MessageSender$1.class
 clinic\dao\core\EventDaoImpl.class
 clinic\mappers\EmployeeMapperImpl.class
 clinic\service\core\ManipulationServiceImpl.class
@@ -64,7 +62,7 @@ clinic\mappers\AbstractMapper.class
 clinic\entities\Manipulation.class
 clinic\service\api\ManipulationService.class
 clinic\dao\core\PatientDaoImpl.class
-clinic\connectConfig\MessageSender.class
+clinic\mq\Producer.class
 clinic\mappers\RoleMapper.class
 clinic\controller\EmployeeController.class
 clinic\mappers\ManipulationTypeMapper.class
@@ -74,11 +72,9 @@ clinic\dao\api\PatientDao.class
 clinic\controller\AuthController.class
 clinic\controller\CaseController.class
 clinic\entities\Case.class
-clinic\connectConfig\MessagingListenerConfig.class
 clinic\mappers\EventMapper.class
 clinic\dao\api\CaseDao.class
 clinic\mappers\ManipulationTypeMapperImpl.class
-clinic\connectConfig\TrackResponse.class
 clinic\service\core\EmployeeServiceImpl.class
 clinic\dao\core\CaseDaoImpl.class
 clinic\service\core\EventServiceImpl.class

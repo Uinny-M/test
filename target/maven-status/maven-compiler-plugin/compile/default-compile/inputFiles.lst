@@ -26,12 +26,14 @@ C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\connectConfig\MessageS
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\entities\enums\Role.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\service\api\AbstractService.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\service\api\PrescriptionService.java
+C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\mq\Producer.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\controller\EmployeeController.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\config\SecurityWebApplicationInitializer.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\connectConfig\MessagingConfig.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\entities\Case.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\dao\core\PrescriptionDaoImpl.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\dao\core\EventDaoImpl.java
+C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\mq\Consumer.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\dto\EmployeeDTO.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\dto\EventDTO.java
 C:\Users\marga\IdeaProjects\T-school\src\main\java\clinic\entities\enums\ManipulationType.java
