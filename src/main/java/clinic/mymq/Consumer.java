@@ -1,4 +1,4 @@
-package clinic.mq;
+package clinic.mymq;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;

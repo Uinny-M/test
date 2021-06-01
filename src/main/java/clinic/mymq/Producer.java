@@ -6,7 +6,7 @@ import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 import javax.jms.*;
 
-@LocalBean
+
 @Stateless
 public class Producer {
     @Resource(name = "java:/clinic/MyConnectionFactory")

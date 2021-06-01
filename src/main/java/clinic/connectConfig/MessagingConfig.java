@@ -8,7 +8,7 @@
 //import java.util.Arrays;
 //@Configuration
 //public class MessagingConfig {
-//    private static final String DEFAULT_BROKER_URL = "tcp://localhost:8080";
+//    private static final String DEFAULT_BROKER_URL = "tcp://localhost:8080";//todo поменять на айпи
 //
 //    private static final String ORDER_QUEUE = "order-queue";
 //
