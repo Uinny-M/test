@@ -38,11 +38,11 @@
             <button type="button" class="btn" style="margin-top: 1px; color: #efffe9">
 
                     <sec:authorize access="!isAuthenticated()">
-                        <a href="${pageContext.request.contextPath}/login" class="menu-index">
+                        <a href="${pageContext.request.contextPath}/login" class="menu-index" style="color: #efffe9">
                             Login</a>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
-                        <a href="${pageContext.request.contextPath}/logout" class="menu-index">
+                        <a href="${pageContext.request.contextPath}/logout" class="menu-index" style="color: #efffe9">
                             Logout</a>
                     </sec:authorize>
 
