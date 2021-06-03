@@ -6,6 +6,7 @@ import clinic.dto.EventDTO;
 import clinic.entities.Event;
 import clinic.entities.enums.EventStatus;
 import clinic.mappers.EventMapper;
+import clinic.mymq.Producer;
 import clinic.service.api.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -75,6 +76,7 @@ public class EventServiceImpl extends AbstractServiceImpl<Event, EventDTO, Event
     public void eventDone(Long eventId) {
         EventDTO eventDTO = getOneById(eventId);
         eventDTO.setStatus(EventStatus.COMPLETED.getDescription());
+
         dao.update(mapToEntity(eventDTO));
     }
 

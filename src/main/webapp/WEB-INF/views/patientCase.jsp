@@ -11,10 +11,13 @@
     <meta/>
     <link href="${pageContext.request.contextPath}/assets/css/t.css" rel="stylesheet" type="text/css">
     <title>Patients</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <jsp:include page="help/header.jsp"></jsp:include>
 <div class="container">
     <jsp:include page="help/menu.jsp"></jsp:include>
@@ -24,24 +27,27 @@
                    modelAttribute="case"
                    cssClass="form">
             <div class="form-group-create row">
-                <b class="col-xs-3">Patient</b>
-                <form:input cssClass="form-s" disabled="true" path="patient.secondName"/>
+                <b class="col-xs-2">Patient:</b>
+                <form:input cssClass="form-s" cssStyle="background-color: #efffe9" disabled="true"
+                            path="patient.secondName"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">Diagnosis</b>
+                <b class="col-xs-2">Diagnosis:</b>
                 <form:input cssClass="form-s" path="diagnosis"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">Start date</b>
-                <form:input cssClass="form-s" disabled="true" readonly="true" type="data" path="startDate"/>
+                <b class="col-xs-2">Start date:</b>
+                <form:input cssClass="form-s" disabled="true" cssStyle="background-color: #efffe9" readonly="true"
+                            type="data" path="startDate"/>
             </div>
             <div class="form-group-create row">
-                <b class="col-xs-3">End date</b>
-                <form:input cssClass="form-s" disabled="true" readonly="true" type="data" path="endDate"/>
+                <b class="col-xs-2">End date:</b>
+                <form:input cssClass="form-s" disabled="true" readonly="true" cssStyle="background-color: #efffe9"
+                            type="data" path="endDate"/>
             </div>
             <div class="form-group row">
-                <b class="col-xs-3">Doctor</b>
-                <form:input cssClass="form-s" disabled="true" path="doctor.login"/>
+                <b class="col-xs-2">Doctor:</b>
+                <form:input cssClass="form-s" disabled="true" cssStyle="background-color: #efffe9" path="doctor.login"/>
             </div>
             <br>
             <sec:authorize access="hasRole('ROLE_DOCTOR')">
@@ -60,13 +66,14 @@
         </button>
         <sec:authorize access="hasRole('ROLE_DOCTOR')">
             <c:if test="${openCase}">
-            <button type="button" class="btn">
-                <a href="${pageContext.request.contextPath}/cases/close/${caseId}"
-                   style="color: #efffe9">Close the case</a></button>
-            <button class="btn">
-                <a href="${pageContext.request.contextPath}/prescription/case/${caseId}/add"
-                   style="color: #efffe9">Add new prescription</a>
-            </button>
+                <button type="button" class="btn">
+                    <a href="${pageContext.request.contextPath}/cases/close/${caseId}"
+                       style="color: #efffe9">Close the case</a></button>
+                <button class="btn">
+                    <a href="${pageContext.request.contextPath}/prescription/case/${caseId}/add"
+                       style="color: #efffe9">Add new prescription</a>
+                </button>
+                </div>
             </c:if>
         </sec:authorize>
 

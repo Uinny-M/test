@@ -18,7 +18,7 @@ public class Producer {
     @Resource(lookup = "java:/clinic/MyQueue")
     private Destination destination;
 
-    @Schedule(hour = "*", minute = "*", second = "*/9", persistent = false)
+   // @Schedule(hour = "*", minute = "*", second = "*/9", persistent = false)
     public void produceMessage(){
         try {
             QueueConnection connection = (QueueConnection) connectionFactory.createConnection();

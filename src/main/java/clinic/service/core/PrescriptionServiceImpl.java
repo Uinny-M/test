@@ -60,8 +60,8 @@ public class PrescriptionServiceImpl extends AbstractServiceImpl<Prescription, P
         prescriptionDTO.setPatient(caseService.getOneById(caseId).getPatient());
         Prescription prescription = dao.save(mapToEntity(prescriptionDTO));
         //create events
-        List<LocalDate> dayPattern = dayPattern(days, prescriptionDTO.getDuration());
         List<LocalTime> timePattern = timePattern(times);
+        List<LocalDate> dayPattern = dayPattern(days, prescriptionDTO.getDuration(), timePattern);
         for (int i = 0; i < dayPattern.size(); i++) {
             for (int j = 0; j < timePattern.size(); j++) {
                 EventDTO eventDTO = new EventDTO();
@@ -92,9 +92,13 @@ public class PrescriptionServiceImpl extends AbstractServiceImpl<Prescription, P
         });
     }
 
-    private List<LocalDate> dayPattern(Set<DayOfWeek> days, byte duration) {
+    private List<LocalDate> dayPattern(Set<DayOfWeek> days, byte duration, List<LocalTime> timePattern) {
         List<LocalDate> dayPattern = new ArrayList<>();
-        LocalDate date = LocalDate.now().plusDays(1);
+        LocalTime now = LocalTime.now().plusMinutes(30);
+        LocalDate date = LocalDate.now();
+        if (timePattern.stream().noneMatch(t -> t.isAfter(now))) {
+            date = date.plusDays(1);
+        }
         while (!days.contains(date.getDayOfWeek())) {
             date = date.plusDays(1);
         }
