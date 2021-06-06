@@ -6,7 +6,7 @@ import clinic.dto.EventDTO;
 import clinic.entities.Event;
 import clinic.entities.enums.EventStatus;
 import clinic.mappers.EventMapper;
-import clinic.mymq.Producer;
+//import clinic.mymq.Producer;
 import clinic.service.api.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
